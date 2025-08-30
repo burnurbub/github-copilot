@@ -17,7 +17,7 @@ namespace YTP.Core.Services
 
         public YoutubeExplodeService()
         {
-            _client = new YoutubeClient();
+            _client = YoutubeClientFactory.Create();
         }
 
         private static string? GetBestThumbnailUrl(IReadOnlyList<YoutubeExplode.Common.Thumbnail> thumbs)

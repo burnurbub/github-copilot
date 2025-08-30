@@ -18,7 +18,7 @@ namespace YTP.Core.Services
 
         public YoutubeDownloaderService(FFmpegService ffmpeg, MetadataService meta)
         {
-            _client = new YoutubeClient();
+            _client = YoutubeClientFactory.Create();
             _ffmpeg = ffmpeg;
             _meta = meta;
         }

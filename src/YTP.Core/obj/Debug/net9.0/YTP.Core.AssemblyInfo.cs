@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YTP.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc9aec6bd07e33a65a7c74c02d63fff11737da38")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1e4ac673ac854d3db0de6685bee7e364c2474c2")]
 [assembly: System.Reflection.AssemblyProductAttribute("YTP.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YTP.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

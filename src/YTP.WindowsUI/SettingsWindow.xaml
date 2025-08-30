@@ -35,9 +35,6 @@
             <CheckBox x:Name="MatchSystemCheck" Content="Match system theme" Margin="8,0,0,0" VerticalAlignment="Center" Checked="MatchSystemCheck_Checked" Unchecked="MatchSystemCheck_Unchecked" />
         </StackPanel>
 
-        <!-- Accent info -->
-        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Text="Accent color: uses system accent (no manual override)" Margin="0,6,0,8" TextWrapping="Wrap" />
-
         <!-- Window sizing fields -->
         <TextBlock Text="Main min W/H:" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Margin="0,4,12,4" />
         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Margin="0,4,0,4">

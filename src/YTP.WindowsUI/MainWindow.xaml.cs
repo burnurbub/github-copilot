@@ -17,6 +17,14 @@ namespace YTP.WindowsUI
     public partial class MainWindow : Wpf.Ui.Controls.FluentWindow
     {
     private System.Collections.ObjectModel.ObservableCollection<VideoItemViewModel> _queueItems = new();
+    private System.Collections.ObjectModel.ObservableCollection<System.Object> _queueSummary = new();
+    // grouping will be implemented later if needed
+    // grouping helper type
+    private class QueueGroupViewModel
+    {
+        public string Title { get; set; } = string.Empty;
+        public System.Collections.ObjectModel.ObservableCollection<VideoItemViewModel> Items { get; set; } = new();
+    }
         private DownloadManager? _dm;
         private CancellationTokenSource? _cts;
         private SettingsManager _settings;
@@ -68,6 +76,95 @@ namespace YTP.WindowsUI
                 OutputFormatCombo.SelectedIndex = _settings.Settings.OutputFormat == "mp4" ? 1 : 0;
             }
             catch { OutputFormatCombo.SelectedIndex = 0; }
+
+            // keep main queue summary in sync when the underlying collection changes
+            _queueItems.CollectionChanged += QueueItems_CollectionChanged;
+        }
+
+        // Simple view model for main-window queue summary
+        private class QueueSummaryView
+        {
+            public string DisplayTitle { get; set; } = string.Empty;
+            public string Subtitle { get; set; } = string.Empty;
+            public string? PlaylistTitle { get; set; }
+        }
+
+        private void BuildQueueSummary(System.Collections.ObjectModel.ObservableCollection<VideoItemViewModel> items)
+        {
+            _queueSummary.Clear();
+            // group playlist items by PlaylistTitle
+            var playlistGroups = items.Where(i => i.Inner.IsPlaylistItem).GroupBy(i => i.Inner.PlaylistTitle ?? "(Unknown playlist)");
+            foreach (var g in playlistGroups)
+            {
+                var node = new QueueSummaryView { DisplayTitle = g.Key ?? "Playlist", Subtitle = $"{g.Count()} items", PlaylistTitle = g.Key };
+                _queueSummary.Add(node);
+            }
+
+            // add single-video items (not playlist items) individually
+            var singles = items.Where(i => !i.Inner.IsPlaylistItem).ToList();
+            foreach (var s in singles)
+            {
+                var node = new QueueSummaryView { DisplayTitle = s.Title, Subtitle = s.Inner.Channel ?? string.Empty, PlaylistTitle = null };
+                _queueSummary.Add(node);
+            }
+
+            // bind to UI
+            QueueSummary.ItemsSource = _queueSummary;
+        }
+
+        private void QueueSummary_OpenInQueue_Click(object sender, RoutedEventArgs e)
+        {
+            // Open full queue window; it will show tree with playlists and items
+            OpenQueueButton_Click(sender, e);
+        }
+
+        private async void EnqueueButton_Click(object sender, RoutedEventArgs e)
+        {
+            var urlsRaw = UrlTextBox.Text;
+            var urls = urlsRaw.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).Select(u => u.Trim()).Where(u => !string.IsNullOrEmpty(u)).ToArray();
+            if (urls.Length == 0)
+            {
+                var mb = new Wpf.Ui.Controls.MessageBox { Title = "Validation", PrimaryButtonText = "OK", CloseButtonText = "Close" };
+                _ = mb.ShowDialogAsync();
+                return;
+            }
+
+            var yts = new YoutubeExplodeService();
+            var flatItems = new System.Collections.Generic.List<YTP.Core.Models.VideoItem>();
+            foreach (var url in urls)
+            {
+                try
+                {
+                    var list = await yts.GetPlaylistOrVideoAsync(url, CancellationToken.None);
+                    foreach (var vi in list)
+                    {
+                        flatItems.Add(vi);
+                        _queueItems.Add(new VideoItemViewModel(vi));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log($"Failed to retrieve info for {url}: {ex.Message}");
+                }
+            }
+
+            // If DownloadManager is running use AddItems to append; otherwise nothing to do (items are in UI summary)
+            if (_dm != null)
+            {
+                _dm.AddItems(flatItems);
+                Log($"Enqueued {flatItems.Count} items");
+            }
+            // rebuild summary UI to reflect added items
+            BuildQueueSummary(_queueItems);
+        }
+
+        private void SkipButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_dm != null)
+            {
+                _dm.SkipCurrent();
+                Log("Skipped current item");
+            }
         }
 
         private void ChooseOutputButton_Click(object sender, RoutedEventArgs e)
@@ -179,11 +276,9 @@ namespace YTP.WindowsUI
                 });
             };
 
-            // bind queue UI
-            QueueList.ItemsSource = _queueItems;
-
             // populate queue items by fetching metadata for URLs (UI-friendly titles)
             _queueItems.Clear();
+            var flatItems = new System.Collections.Generic.List<YTP.Core.Models.VideoItem>();
             foreach (var url in urls)
             {
                 try
@@ -192,6 +287,7 @@ namespace YTP.WindowsUI
                     foreach (var vi in list)
                     {
                         _queueItems.Add(new VideoItemViewModel(vi));
+                        flatItems.Add(vi);
                     }
                 }
                 catch (Exception ex)
@@ -200,9 +296,16 @@ namespace YTP.WindowsUI
                 }
             }
 
+            // bind queue UI
+            BuildQueueSummary(_queueItems);
+
+            // show skip button now that the manager is active
+            SkipButton.IsEnabled = true;
+
             try
             {
-                await _dm.DownloadQueueAsync(urls, _cts.Token);
+                // use new DownloadItemsAsync so UI can mutate the queue
+                await _dm.DownloadItemsAsync(flatItems, _cts.Token);
                 var dialog = new Wpf.Ui.Controls.ContentDialog()
                 {
                     Title = "Complete",
@@ -233,6 +336,7 @@ namespace YTP.WindowsUI
                 PauseButton.IsEnabled = false;
                 PauseButton.Content = "Pause";
                 AbortButton.IsEnabled = false;
+                SkipButton.IsEnabled = false;
                 ItemProgress.Value = 0;
                 // stop timers
                 _itemTimer.Stop();
@@ -274,25 +378,13 @@ namespace YTP.WindowsUI
         {
             if (sender is FrameworkElement fe && fe.DataContext is VideoItemViewModel vvm)
             {
-                // toggle per-item paused state
+                // toggle per-item paused state and inform DownloadManager
                 vvm.IsPaused = !vvm.IsPaused;
                 Log($"Queue item {(vvm.IsPaused ? "paused" : "resumed")}: {vvm.Title}");
-
-                // if this is the currently downloading item, toggle the global downloader
-                if (!string.IsNullOrEmpty(_currentItemId) && vvm.Id == _currentItemId)
+                if (_dm != null)
                 {
-                    if (vvm.IsPaused)
-                    {
-                        _dm?.Pause();
-                        PauseButton.Content = "Resume";
-                        PauseButton.IsEnabled = true;
-                    }
-                    else
-                    {
-                        _dm?.Resume();
-                        PauseButton.Content = "Pause";
-                        PauseButton.IsEnabled = true;
-                    }
+                    if (vvm.IsPaused) _dm.PauseItem(vvm.Id);
+                    else _dm.ResumeItem(vvm.Id);
                 }
             }
         }
@@ -301,74 +393,41 @@ namespace YTP.WindowsUI
         {
             if (sender is FrameworkElement fe && fe.DataContext is VideoItemViewModel vvm)
             {
+                // remove from UI
                 _queueItems.Remove(vvm);
                 Log($"Removed from queue: {vvm.Title}");
+                // update summary UI
+                BuildQueueSummary(_queueItems);
+                // instruct DownloadManager to drop the pending item if possible
+                if (_dm != null)
+                {
+                    var removed = _dm.RemoveItem(vvm.Id);
+                    Log(removed ? $"Removed from pending list: {vvm.Title}" : $"Could not remove from pending list (probably already processing): {vvm.Title}");
+                }
             }
+        }
+
+        private void QueueItems_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            // Rebuild the compact summary on the UI thread
+            Dispatcher?.BeginInvoke((Action)(() => BuildQueueSummary(_queueItems)));
         }
 
         private void QueueList_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            _dragStartPoint = e.GetPosition(null);
-            var container = (System.Windows.Controls.Primitives.UniformGrid?)null;
-            // find the item under mouse
-            var element = e.OriginalSource as DependencyObject;
-            while (element != null && !(element is System.Windows.Controls.ListBoxItem) && !(element is System.Windows.Controls.ContentPresenter))
-            {
-                element = VisualTreeHelper.GetParent(element);
-            }
-            if (element is FrameworkElement fe && fe.DataContext != null)
-            {
-                _draggedItem = fe.DataContext;
-            }
+            // Drag and drop for main-window summary is disabled (full drag/reorder remains in queue window)
+            _dragStartPoint = default;
+            _draggedItem = null;
         }
 
         private void QueueList_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed && _draggedItem != null)
-            {
-                var pos = e.GetPosition(null);
-                if (Math.Abs(pos.X - _dragStartPoint.X) > SystemParameters.MinimumHorizontalDragDistance || Math.Abs(pos.Y - _dragStartPoint.Y) > SystemParameters.MinimumVerticalDragDistance)
-                {
-                    var data = new System.Windows.DataObject("VideoItem", _draggedItem);
-                    System.Windows.DragDrop.DoDragDrop(this, data, System.Windows.DragDropEffects.Move);
-                }
-            }
+            // no-op
         }
 
     private void QueueList_Drop(object sender, System.Windows.DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("VideoItem"))
-            {
-                var dropped = e.Data.GetData("VideoItem") as VideoItemViewModel ?? (e.Data.GetData("VideoItem") as YTP.Core.Models.VideoItem) switch
-                {
-                    YTP.Core.Models.VideoItem vi => new VideoItemViewModel(vi),
-                    _ => null
-                };
-                if (dropped == null) return;
-
-                // Determine target index
-                var pos = e.GetPosition(QueueList);
-                int index = 0;
-                for (int i = 0; i < QueueList.Items.Count; i++)
-                {
-                    var item = (FrameworkElement)QueueList.ItemContainerGenerator.ContainerFromIndex(i);
-                    if (item == null) continue;
-                    var bounds = new Rect(item.TranslatePoint(new Point(0, 0), QueueList), new Size(item.ActualWidth, item.ActualHeight));
-                    if (pos.Y < bounds.Bottom)
-                    {
-                        index = i;
-                        break;
-                    }
-                    index = i + 1;
-                }
-
-                var oldIndex = _queueItems.ToList().FindIndex(x => x.Id == dropped.Id);
-                if (oldIndex >= 0)
-                {
-                    if (oldIndex < index) index--;
-                    _queueItems.Move(oldIndex, index);
-                }
-            }
+            // no-op: reordering is handled in the detachable queue window
             _draggedItem = null;
         }
 
@@ -416,6 +475,93 @@ namespace YTP.WindowsUI
                 // refresh output dir text
                 OutputDirText.Text = _settings.Settings.OutputDirectory;
             }
+        }
+
+        private QueueWindow? _queueWindow;
+
+        private void OpenQueueButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_queueWindow != null)
+            {
+                // already open -> close it
+                _queueWindow.Close();
+                _queueWindow = null;
+                OpenQueueButton.Content = "Open Queue";
+                return;
+            }
+
+            // switch the button immediately so user sees state change
+            OpenQueueButton.Content = "Close Queue";
+
+            _queueWindow = new QueueWindow(_queueItems);
+            _queueWindow.Owner = this;
+            // position to the right of main window, aligned vertically
+            _queueWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            // attach as live source so the queue window will refresh when the main queue changes
+            _queueWindow.SetSource(_queueItems);
+
+            _queueWindow.OnPauseToggle = (id) => {
+                var v = _queueItems.FirstOrDefault(x => x.Id == id);
+                if (v != null)
+                {
+                    if (v.IsPaused) _dm?.PauseItem(id); else _dm?.ResumeItem(id);
+                }
+            };
+            _queueWindow.OnRemove = (id) => {
+                var v = _queueItems.FirstOrDefault(x => x.Id == id);
+                if (v != null)
+                {
+                    _queueItems.Remove(v);
+                    _dm?.RemoveItem(id);
+                }
+            };
+            _queueWindow.Closed += (s, ev) => {
+                // detach handlers
+                this.LocationChanged -= MainWindow_LocationOrSizeChanged;
+                this.SizeChanged -= MainWindow_LocationOrSizeChanged;
+                _queueWindow = null;
+                Dispatcher.Invoke(() => OpenQueueButton.Content = "Open Queue");
+            };
+            // show first so ActualWidth/Height are meaningful
+            _queueWindow.Show();
+            // position to the right after showing
+            PositionQueueWindow();
+            // follow main window movements/resizes
+            this.LocationChanged += MainWindow_LocationOrSizeChanged;
+            this.SizeChanged += MainWindow_LocationOrSizeChanged;
+            _queueWindow.Activate();
+            OpenQueueButton.Content = "Close Queue";
+        }
+
+        private void MainWindow_LocationOrSizeChanged(object? sender, EventArgs e)
+        {
+            PositionQueueWindow();
+        }
+
+        private void PositionQueueWindow()
+        {
+            if (_queueWindow == null) return;
+            try
+            {
+                // prefer left side if there is enough space, otherwise place to the right
+                var wa = SystemParameters.WorkArea;
+                double leftSpace = this.Left - wa.Left;
+                double rightSpace = wa.Right - (this.Left + this.ActualWidth);
+                double newLeft;
+                if (leftSpace >= _queueWindow.Width)
+                    newLeft = this.Left - _queueWindow.Width; // place on left
+                else
+                    newLeft = this.Left + this.ActualWidth; // place on right
+                var newTop = this.Top;
+                // ensure on-screen (work area)
+                if (newLeft < wa.Left) newLeft = wa.Left;
+                if (newLeft + _queueWindow.Width > wa.Right) newLeft = wa.Right - _queueWindow.Width;
+                if (newTop < wa.Top) newTop = wa.Top;
+                if (newTop + _queueWindow.Height > wa.Bottom) newTop = wa.Bottom - _queueWindow.Height;
+                _queueWindow.Left = newLeft;
+                _queueWindow.Top = newTop;
+            }
+            catch { }
         }
 
     private async void OpenFolderButton_Click(object sender, RoutedEventArgs e)
@@ -515,8 +661,8 @@ namespace YTP.WindowsUI
             catch { }
         }
 
-        // lightweight wrapper for per-item UI state
-        private class VideoItemViewModel : System.ComponentModel.INotifyPropertyChanged
+    // lightweight wrapper for per-item UI state
+    public class VideoItemViewModel : System.ComponentModel.INotifyPropertyChanged
         {
             public YTP.Core.Models.VideoItem Inner { get; }
             public string Id => Inner?.Id ?? Guid.NewGuid().ToString();
@@ -531,9 +677,13 @@ namespace YTP.WindowsUI
                     {
                         _isPaused = value;
                         PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(nameof(IsPaused)));
+                        // notify icon change as well
+                        PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(nameof(IconSymbol)));
                     }
                 }
             }
+
+            public Wpf.Ui.Controls.SymbolRegular IconSymbol => IsPaused ? Wpf.Ui.Controls.SymbolRegular.Play12 : Wpf.Ui.Controls.SymbolRegular.Pause12;
 
             public VideoItemViewModel(YTP.Core.Models.VideoItem vi)
             {
@@ -545,26 +695,4 @@ namespace YTP.WindowsUI
     }
 }
 
-// Converter for binding a bool IsPaused to a Symbol enum for SymbolIcon
-namespace YTP.WindowsUI
-{
-    public class BoolToSymbolConverter : System.Windows.Data.IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            var isPaused = false;
-            if (value is bool b) isPaused = b;
-            // show Play icon when paused, Pause icon when playing
-            return isPaused ? Wpf.Ui.Controls.SymbolRegular.Play12 : Wpf.Ui.Controls.SymbolRegular.Pause12;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            if (value is Wpf.Ui.Controls.SymbolRegular s)
-            {
-                return s == Wpf.Ui.Controls.SymbolRegular.Play24;
-            }
-            return false;
-        }
-    }
-}
+// ...existing code...
