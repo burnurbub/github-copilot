@@ -1,0 +1,154 @@
+<ui:FluentWindow x:Class="YTP.WindowsUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:YTP.WindowsUI"
+        Title="YTP Downloader" Height="600" Width="1000" MinWidth="720" MinHeight="480">
+    <ui:FluentWindow.Resources>
+        <local:BoolToSymbolConverter x:Key="BoolToSymbolConverter" />
+    </ui:FluentWindow.Resources>
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" /> <!-- TitleBar -->
+            <RowDefinition Height="Auto" /> <!-- URL input -->
+            <RowDefinition Height="Auto" /> <!-- Actions -->
+            <RowDefinition Height="*" />    <!-- Main content (split) -->
+            <RowDefinition Height="Auto" /> <!-- Status / small footer if needed -->
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <ContentPresenter x:Name="RootContentDialog" Grid.Row="0" />
+            <ui:TitleBar Title="YTP Downloader" Grid.Row="0" />
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <!-- removed legacy hint; use placeholder inside the box -->
+            <ui:TextBox x:Name="UrlTextBox" Height="120" AcceptsReturn="True" TextWrapping="Wrap" Margin="0,0,0,8" FontSize="13" PlaceholderText="Paste YouTube URLs here, one per line..." />
+        </StackPanel>
+
+        <!-- Actions row: start/abort left, other actions right -->
+        <Grid Grid.Row="2" Margin="0,4,0,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center">
+                <Button x:Name="StartButton" Content="Start" Width="100" Margin="0,0,8,0" Click="StartButton_Click" />
+                <Button x:Name="PauseButton" Content="Pause" Width="90" Margin="0,0,8,0" Click="PauseButton_Click" IsEnabled="False" />
+                <Button x:Name="AbortButton" Content="Abort" Width="100" Click="AbortButton_Click" IsEnabled="False" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <ComboBox x:Name="OutputFormatCombo" Width="100" Margin="8,0,0,0" SelectionChanged="OutputFormatCombo_SelectionChanged">
+                    <ComboBoxItem>mp3</ComboBoxItem>
+                    <ComboBoxItem>mp4</ComboBoxItem>
+                </ComboBox>
+
+                <Button x:Name="PasteClipboardButton" Margin="8,0,0,0" Click="PasteClipboardButton_Click" ToolTip="Paste from clipboard into URLs">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <ui:SymbolIcon Symbol="ClipboardPaste24" Margin="0,0,6,0" />
+                        <TextBlock Text="Paste" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="ClearUrlsButton" Margin="8,0,0,0" Click="ClearUrlsButton_Click" ToolTip="Clear all URLs">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <ui:SymbolIcon Symbol="Delete24" Margin="0,0,6,0" />
+                        <TextBlock Text="Clear" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Flyout popup for clear confirmation -->
+                <Popup x:Name="ClearConfirmPopup" PlacementTarget="{Binding ElementName=ClearUrlsButton}" Placement="Mouse" StaysOpen="False">
+                    <Border Background="{DynamicResource WindowBackground}" Padding="10" CornerRadius="6" BorderBrush="Gray" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Clear all URLs?" VerticalAlignment="Center" Margin="0,0,8,0" />
+                            <Button x:Name="ClearConfirmYes" Content="Yes" Click="ClearConfirmYes_Click" />
+                            <Button Content="No" Click="ClearConfirmNo_Click" Margin="8,0,0,0" />
+                        </StackPanel>
+                    </Border>
+                </Popup>
+
+                <Button x:Name="SettingsButton" Width="40" Height="32" Margin="8,0,0,0" Click="SettingsButton_Click" ToolTip="Settings">
+                    <ui:SymbolIcon Symbol="Settings24" />
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- Main content: left for controls/progress/timers, right for log -->
+        <Grid Grid.Row="3" Margin="0,4,0,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="420" MinWidth="300" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left column: output dir, song/timers, progress -->
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,0,8">
+                        <TextBox x:Name="OutputDirText" HorizontalAlignment="Stretch" IsReadOnly="True" Margin="0,0,0,6" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Button x:Name="ChooseOutputButton" Content="Choose..." Width="90" Click="ChooseOutputButton_Click" />
+                            <Button x:Name="OpenFolderButton" Content="Open" Width="70" Margin="6,0,0,0" Click="OpenFolderButton_Click" />
+                        </StackPanel>
+                    </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="0,0,0,8">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Song:" VerticalAlignment="Center" Margin="0,0,6,0" />
+                        <TextBlock x:Name="CurrentSongText" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,12,0" TextTrimming="CharacterEllipsis" Width="360" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,6,0,0">
+                        <TextBlock Text="Elapsed:" Margin="0,0,6,0" VerticalAlignment="Center" />
+                        <TextBlock x:Name="ItemElapsedText" VerticalAlignment="Center" Margin="0,0,12,0" />
+                        <TextBlock Text="Total:" Margin="0,0,6,0" VerticalAlignment="Center" />
+                        <TextBlock x:Name="TotalElapsedText" VerticalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Queue and progress area -->
+                <StackPanel Orientation="Vertical" Margin="0,4,0,0">
+                    <ItemsControl x:Name="QueueList" Height="160" AllowDrop="True" PreviewMouseLeftButtonDown="QueueList_PreviewMouseLeftButtonDown" MouseMove="QueueList_MouseMove" Drop="QueueList_Drop">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,2,0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="22" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <ui:SymbolIcon Grid.Column="0" Symbol="DocumentSplitHint20" VerticalAlignment="Center" Margin="4,0" ToolTip="Drag to reorder" />
+                                    <TextBlock Grid.Column="1" Text="{Binding Title}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Button Width="26" Height="24" Margin="2" Padding="0" ToolTip="Pause/Resume" Click="QueueItem_Pause_Click">
+                                            <ui:SymbolIcon Symbol="VideoPlayPause20" />
+                                        </Button>
+                                        <Button Width="26" Height="24" Margin="2" Padding="0" ToolTip="Remove" Click="QueueItem_Remove_Click">
+                                            <ui:SymbolIcon Symbol="SubtractCircle20" />
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <TextBlock x:Name="PlaylistInfoText" FontWeight="SemiBold" Margin="0,6,0,6" />
+                    <ProgressBar x:Name="ItemProgress" Height="18" Minimum="0" Maximum="1" />
+                </StackPanel>
+            </StackPanel>
+
+            <!-- spacer -->
+            <Grid Grid.Column="1" />
+
+            <!-- Right column: log area (fills available space) -->
+            <TextBox x:Name="LogText" Grid.Column="2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True" TextWrapping="Wrap" />
+        </Grid>
+
+        <!-- Footer row can hold tiny status if needed (currently empty) -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <!-- reserved for future small status items -->
+        </StackPanel>
+    </Grid>
+</ui:FluentWindow>

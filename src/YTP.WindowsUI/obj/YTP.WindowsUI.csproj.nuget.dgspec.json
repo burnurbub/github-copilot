@@ -1,0 +1,1315 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.WindowsUI\\YTP.WindowsUI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\YTP.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\YTP.Core.csproj",
+        "projectName": "YTP.Core",
+        "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\YTP.Core.csproj",
+        "packagesPath": "C:\\Users\\nasse\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nasse\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.46, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "TagLibSharp": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "YoutubeExplode": {
+              "target": "Package",
+              "version": "[6.5.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.WindowsUI\\YTP.WindowsUI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.WindowsUI\\YTP.WindowsUI.csproj",
+        "projectName": "YTP.WindowsUI",
+        "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.WindowsUI\\YTP.WindowsUI.csproj",
+        "packagesPath": "C:\\Users\\nasse\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.WindowsUI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nasse\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0-windows7.0": {
+            "targetAlias": "net9.0-windows",
+            "projectReferences": {
+              "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\YTP.Core.csproj": {
+                "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\YTP.Core.csproj"
+              },
+              "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui\\Wpf.Ui.csproj": {
+                "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui\\Wpf.Ui.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0-windows7.0": {
+          "targetAlias": "net9.0-windows",
+          "dependencies": {
+            "Microsoft.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj": {
+      "version": "4.0.3",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj",
+        "projectName": "WPF-UI.Abstractions",
+        "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj",
+        "packagesPath": "C:\\Users\\nasse\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "centralPackageVersionsManagementEnabled": true,
+        "configFilePaths": [
+          "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\NuGet.Config",
+          "C:\\Users\\nasse\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net462",
+          "net472",
+          "net6.0",
+          "net8.0",
+          "net9.0",
+          "netstandard2.0",
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          },
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          },
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          },
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {}
+          },
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          },
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          },
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "moderate",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        },
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.18, )",
+              "autoReferenced": true
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        },
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "autoReferenced": true
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        },
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        },
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui\\Wpf.Ui.csproj": {
+      "version": "4.0.3",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui\\Wpf.Ui.csproj",
+        "projectName": "WPF-UI",
+        "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui\\Wpf.Ui.csproj",
+        "packagesPath": "C:\\Users\\nasse\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "centralPackageVersionsManagementEnabled": true,
+        "configFilePaths": [
+          "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\NuGet.Config",
+          "C:\\Users\\nasse\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net462",
+          "net472",
+          "net481",
+          "net6.0-windows",
+          "net8.0-windows",
+          "net9.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj"
+              }
+            }
+          },
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj"
+              }
+            }
+          },
+          "net9.0-windows7.0": {
+            "targetAlias": "net9.0-windows",
+            "projectReferences": {
+              "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj"
+              }
+            }
+          },
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {
+              "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj"
+              }
+            }
+          },
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {
+              "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj"
+              }
+            }
+          },
+          "net481": {
+            "targetAlias": "net481",
+            "projectReferences": {
+              "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj": {
+                "projectPath": "C:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\wpfui\\src\\Wpf.Ui.Abstractions\\Wpf.Ui.Abstractions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "moderate",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            },
+            "WpfAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.1.1, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        },
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            },
+            "WpfAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.1.1, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        },
+        "net9.0-windows7.0": {
+          "targetAlias": "net9.0-windows",
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            },
+            "WpfAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.1.1, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        },
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            },
+            "System.ValueTuple": {
+              "target": "Package",
+              "version": "[4.5.0, )",
+              "versionCentrallyManaged": true
+            },
+            "WpfAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.1.1, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        },
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            },
+            "WpfAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.1.1, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        },
+        "net481": {
+          "targetAlias": "net481",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "PolySharp": {
+              "include": "Build, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.15.0, )",
+              "versionCentrallyManaged": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.556, )",
+              "versionCentrallyManaged": true
+            },
+            "WpfAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.1.1, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "CommunityToolkit.Mvvm": "8.4.0",
+            "coverlet.collector": "6.0.4",
+            "Lepo.i18n": "2.0.0",
+            "Lepo.i18n.DependencyInjection": "2.0.0",
+            "Lepo.i18n.Wpf": "2.0.0",
+            "Microsoft.CodeAnalysis.CSharp": "4.12.0",
+            "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1",
+            "Microsoft.Extensions.Hosting": "9.0.1",
+            "Microsoft.NET.Test.Sdk": "17.12.0",
+            "Microsoft.SourceLink.GitHub": "8.0.0",
+            "Microsoft.VisualStudio.CoreUtility": "17.2.3194",
+            "Microsoft.VisualStudio.SDK": "17.12.4039",
+            "Microsoft.VSSDK.BuildTools": "17.12.2069",
+            "Microsoft.Web.WebView2": "1.0.2957.106",
+            "Microsoft.Windows.SDK.BuildTools": "10.0.26100.1742",
+            "NativeMethods": "0.0.3",
+            "NSubstitute": "5.3.0",
+            "PolySharp": "1.15.0",
+            "ReflectionEventing": "3.1.0",
+            "ReflectionEventing.DependencyInjection": "3.1.0",
+            "StyleCop.Analyzers": "1.2.0-beta.556",
+            "System.Drawing.Common": "9.0.1",
+            "System.ValueTuple": "4.5.0",
+            "WpfAnalyzers": "4.1.1",
+            "xunit": "2.9.3",
+            "xunit.runner.visualstudio": "3.0.1"
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

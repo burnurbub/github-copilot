@@ -1,0 +1,12 @@
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\YTP.Core.csproj.AssemblyReference.cache
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\YTP.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\YTP.Core.AssemblyInfoInputs.cache
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\YTP.Core.AssemblyInfo.cs
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\YTP.Core.csproj.CoreCompileInputs.cache
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\bin\Debug\net7.0\YTP.Core.deps.json
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\bin\Debug\net7.0\YTP.Core.dll
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\bin\Debug\net7.0\YTP.Core.pdb
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\YTP.Core.dll
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\refint\YTP.Core.dll
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\YTP.Core.pdb
+C:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net7.0\ref\YTP.Core.dll

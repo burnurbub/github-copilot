@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+  <PackageReference Include="YoutubeExplode" Version="6.5.4" />
+  <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  <PackageReference Include="SixLabors.ImageSharp" Version="3.1.0" />
+  <PackageReference Include="TagLibSharp" Version="2.2.0" />
+  </ItemGroup>
+</Project>

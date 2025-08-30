@@ -1,0 +1,12 @@
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\bin\Debug\net9.0\YTP.Core.deps.json
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\bin\Debug\net9.0\YTP.Core.dll
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\bin\Debug\net9.0\YTP.Core.pdb
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\YTP.Core.csproj.AssemblyReference.cache
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\YTP.Core.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\YTP.Core.AssemblyInfoInputs.cache
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\YTP.Core.AssemblyInfo.cs
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\YTP.Core.csproj.CoreCompileInputs.cache
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\YTP.Core.dll
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\refint\YTP.Core.dll
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\YTP.Core.pdb
+c:\Users\nasse\OneDrive\Dev\Programs\ytp\github copilot\src\YTP.Core\obj\Debug\net9.0\ref\YTP.Core.dll
