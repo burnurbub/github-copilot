@@ -17,7 +17,6 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <ContentPresenter x:Name="RootContentDialog" Grid.Row="0" />
             <ui:TitleBar Title="YTP Downloader" Grid.Row="0" />
         </Grid>
 
@@ -119,11 +118,11 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <ui:SymbolIcon Grid.Column="0" Symbol="DocumentSplitHint20" VerticalAlignment="Center" Margin="4,0" ToolTip="Drag to reorder" />
+                                    <ui:SymbolIcon Grid.Column="0" Symbol="ArrowBiDirectionalUpDown20" VerticalAlignment="Center" Margin="4,0" ToolTip="Drag to reorder" />
                                     <TextBlock Grid.Column="1" Text="{Binding Title}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
                                     <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
                                         <Button Width="26" Height="24" Margin="2" Padding="0" ToolTip="Pause/Resume" Click="QueueItem_Pause_Click">
-                                            <ui:SymbolIcon Symbol="VideoPlayPause20" />
+                                            <ui:SymbolIcon Symbol="{Binding IsPaused, Converter={StaticResource BoolToSymbolConverter}}" />
                                         </Button>
                                         <Button Width="26" Height="24" Margin="2" Padding="0" ToolTip="Remove" Click="QueueItem_Remove_Click">
                                             <ui:SymbolIcon Symbol="SubtractCircle20" />
@@ -150,5 +149,8 @@
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
             <!-- reserved for future small status items -->
         </StackPanel>
+
+        <!-- ContentDialog host: occupies the full window so dialogs float centered over everything -->
+        <ContentPresenter x:Name="RootContentDialog" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
     </Grid>
 </ui:FluentWindow>

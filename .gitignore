@@ -1,0 +1,56 @@
+# Build outputs
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Visual Studio and Rider
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# NuGet
+*.nupkg
+packages/
+
+# OneDrive or other cloud sync folders (ignore local copies)
+*.lnk
+
+# Logs and temp
+*.log
+*.tmp
+
+# Ignore other repositories and dev folders by common names (safe broad ignore)
+**/wpfui/**/bin/
+**/wpfui/**/obj/
+**/youtube-music/**/node_modules/
+**/lucida/**/node_modules/
+
+# JetBrains
+.idea/
+
+# npm/pnpm
+node_modules/
+.pnp.cjs
+pnpm-lock.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Rider caches
+.idea/
+
+# Ignore user-specific settings
+*.userprefs
+
+# Keep this repo's files tracked
+!/.gitignore
