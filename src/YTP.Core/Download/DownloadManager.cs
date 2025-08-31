@@ -142,6 +142,24 @@ namespace YTP.Core.Download
         }
     }
 
+    // Move an item by id to a new index in the pending queue. Returns true if moved.
+    public bool MoveItemById(string itemId, int newIndex)
+    {
+        if (string.IsNullOrEmpty(itemId)) return false;
+        lock (_pendingLock)
+        {
+            var idx = _pending.FindIndex(i => i.Id == itemId);
+            if (idx < 0) return false;
+            if (newIndex < 0) newIndex = 0;
+            if (newIndex > _pending.Count - 1) newIndex = _pending.Count - 1;
+            var item = _pending[idx];
+            _pending.RemoveAt(idx);
+            if (newIndex > _pending.Count) newIndex = _pending.Count;
+            _pending.Insert(newIndex, item);
+            return true;
+        }
+    }
+
     public async Task DownloadQueueAsync(string[] urls, CancellationToken ct = default)
         {
             // Run processing on a background thread to avoid capturing UI synchronization context

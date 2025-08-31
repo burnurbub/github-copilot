@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YTP.WindowsUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1e4ac673ac854d3db0de6685bee7e364c2474c2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a64fe806562c5095122ba836a58276827389110")]
 [assembly: System.Reflection.AssemblyProductAttribute("YTP.WindowsUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YTP.WindowsUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

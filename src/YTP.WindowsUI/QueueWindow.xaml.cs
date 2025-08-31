@@ -10,6 +10,8 @@ namespace YTP.WindowsUI
         public System.Collections.ObjectModel.ObservableCollection<object> Queue { get; private set; }
         public System.Action<string>? OnPauseToggle { get; set; }
         public System.Action<string>? OnRemove { get; set; }
+    public System.Action<string>? OnLog { get; set; }
+    public System.Action<string,int>? OnReorder { get; set; }
 
         private System.Collections.Specialized.INotifyCollectionChanged? _sourceNotifier;
         private System.Collections.ObjectModel.ObservableCollection<MainWindow.VideoItemViewModel>? _sourceCollection;
@@ -115,6 +117,11 @@ namespace YTP.WindowsUI
                             if (currentIdx != idx) playlistNode.Items.Move(currentIdx, idx);
                         }
                     }
+                    // assign temporary per-playlist numbering (global numbering applied later)
+                    for (int i = 0; i < playlistNode.Items.Count; i++)
+                    {
+                        playlistNode.Items[i].Number = i + 1;
+                    }
                 }
                 // remove playlists that no longer exist
                 for (int i = Queue.Count - 1; i >= 0; i--)
@@ -125,6 +132,8 @@ namespace YTP.WindowsUI
                             Queue.RemoveAt(i);
                     }
                 }
+                // assign global sequential numbering across playlists and singles
+                RecomputeNumbers();
             }
             catch { }
         }
@@ -162,11 +171,66 @@ namespace YTP.WindowsUI
         {
             var tv = sender as TreeView;
             var src = e.OriginalSource as DependencyObject;
+            // if click originating from a Button inside the item, ignore so button gets the click
+            if (FindAncestor<System.Windows.Controls.Button>(src) != null) return;
             var tvi = FindAncestor<System.Windows.Controls.TreeViewItem>(src);
             if (tvi != null && tvi.DataContext is QueueItemNode qn)
             {
-                DragDrop.DoDragDrop(tvi, qn.Id, DragDropEffects.Move);
+                // store potential drag source; start actual drag in PreviewMouseMove when threshold exceeded
+                _lastMouseDownItemId = qn.Id;
+                _lastMouseDownPos = e.GetPosition(null);
             }
+        }
+
+        private string? _lastMouseDownItemId;
+        private System.Windows.Point _lastMouseDownPos;
+
+        private void TreeView_PreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (_lastMouseDownItemId == null) return;
+            if (e.LeftButton != System.Windows.Input.MouseButtonState.Pressed) return;
+            var pos = e.GetPosition(null);
+            var dx = Math.Abs(pos.X - _lastMouseDownPos.X);
+            var dy = Math.Abs(pos.Y - _lastMouseDownPos.Y);
+            // larger threshold to avoid accidental drags while clicking buttons
+            if (dx > 8 || dy > 8)
+            {
+                var tvi = FindTreeViewItemById(_lastMouseDownItemId);
+                if (tvi != null)
+                {
+                    DragDrop.DoDragDrop(tvi, _lastMouseDownItemId, DragDropEffects.Move);
+                }
+                _lastMouseDownItemId = null;
+            }
+        }
+
+        private void TreeView_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // reset any pending drag state so clicks release cleanly
+            _lastMouseDownItemId = null;
+        }
+
+        private void RecomputeNumbers()
+        {
+            try
+            {
+                int counter = 1;
+                foreach (var obj in Queue)
+                {
+                    if (obj is PlaylistNode pn)
+                    {
+                        for (int i = 0; i < pn.Items.Count; i++)
+                        {
+                            pn.Items[i].Number = counter++;
+                        }
+                    }
+                    else if (obj is QueueItemNode qn)
+                    {
+                        qn.Number = counter++;
+                    }
+                }
+            }
+            catch { }
         }
 
         private void TreeView_Drop(object sender, DragEventArgs e)
@@ -184,18 +248,30 @@ namespace YTP.WindowsUI
                     var moving = _sourceCollection.FirstOrDefault(x => x.Id == id);
                     if (moving != null)
                     {
-                        // remove and re-insert at target position
-                        _sourceCollection.Remove(moving);
+                        var oldIdx = _sourceCollection.IndexOf(moving);
+                        int newIdx = _sourceCollection.Count - 1;
                         if (!string.IsNullOrEmpty(targetId))
                         {
                             var idx = _sourceCollection.ToList().FindIndex(x => x.Id == targetId);
-                            if (idx >= 0) _sourceCollection.Insert(idx, moving); else _sourceCollection.Add(moving);
+                            if (idx >= 0) newIdx = idx;
+                        }
+
+                        if (oldIdx >= 0)
+                        {
+                            // perform reorder in source collection
+                            _sourceCollection.RemoveAt(oldIdx);
+                            if (newIdx > _sourceCollection.Count) newIdx = _sourceCollection.Count;
+                            _sourceCollection.Insert(newIdx, moving);
+                            RefreshFromSource();
+                            OnLog?.Invoke($"Reordered item {moving.Title} from {oldIdx} to {newIdx}");
+                            // recompute numbering to avoid duplicate/incorrect numbers after reordering
+                            RecomputeNumbers();
+                            OnReorder?.Invoke(moving.Id, newIdx);
                         }
                         else
                         {
-                            _sourceCollection.Add(moving);
+                            OnLog?.Invoke($"Drag/drop: source item not found for id {id}");
                         }
-                        RefreshFromSource();
                     }
                 }
             }
@@ -245,6 +321,37 @@ namespace YTP.WindowsUI
                 }
             }
         }
+
+        // helper to find TreeViewItem by underlying item id (used to start drag)
+        private System.Windows.Controls.TreeViewItem? FindTreeViewItemById(string id)
+        {
+            foreach (var obj in Queue)
+            {
+                if (obj is PlaylistNode pn)
+                {
+                    var parentTvi = QueueTree.ItemContainerGenerator.ContainerFromItem(pn) as System.Windows.Controls.TreeViewItem;
+                    if (parentTvi != null)
+                    {
+                        for (int i = 0; i < pn.Items.Count; i++)
+                        {
+                            var child = pn.Items[i];
+                            if (child.Id == id)
+                            {
+                                parentTvi.IsExpanded = true;
+                                var childTvi = parentTvi.ItemContainerGenerator.ContainerFromItem(child) as System.Windows.Controls.TreeViewItem;
+                                if (childTvi != null) return childTvi;
+                            }
+                        }
+                    }
+                }
+                else if (obj is QueueItemNode qn && qn.Id == id)
+                {
+                    var tvi = QueueTree.ItemContainerGenerator.ContainerFromItem(qn) as System.Windows.Controls.TreeViewItem;
+                    if (tvi != null) return tvi;
+                }
+            }
+            return null;
+        }
     }
 
     // helper node types for TreeView (top-level so XAML can resolve them via the local namespace)
@@ -261,6 +368,9 @@ namespace YTP.WindowsUI
         public string Subtitle { get; set; } = string.Empty;
         public MainWindow.VideoItemViewModel? InnerVm { get; set; }
         public Wpf.Ui.Controls.SymbolRegular IconSymbol => InnerVm != null && InnerVm.IsPaused ? Wpf.Ui.Controls.SymbolRegular.Play12 : Wpf.Ui.Controls.SymbolRegular.Pause12;
+        // numeric index for display
+        public int Number { get; set; }
     }
 
 }
+

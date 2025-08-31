@@ -507,6 +507,30 @@ namespace YTP.WindowsUI
                     if (v.IsPaused) _dm?.PauseItem(id); else _dm?.ResumeItem(id);
                 }
             };
+            // ensure timers reflect per-item pause state when user toggles from queue window
+            _queueWindow.OnPauseToggle = (id) => {
+                var v = _queueItems.FirstOrDefault(x => x.Id == id);
+                if (v != null)
+                {
+                    if (v.IsPaused)
+                    {
+                        // if it's currently the playing item, pause overall timers
+                        if (_currentItemId == id)
+                        {
+                            _itemTimer.Stop();
+                        }
+                        _dm?.PauseItem(id);
+                    }
+                    else
+                    {
+                        if (_currentItemId == id)
+                        {
+                            _itemTimer.Start();
+                        }
+                        _dm?.ResumeItem(id);
+                    }
+                }
+            };
             _queueWindow.OnRemove = (id) => {
                 var v = _queueItems.FirstOrDefault(x => x.Id == id);
                 if (v != null)
@@ -514,6 +538,17 @@ namespace YTP.WindowsUI
                     _queueItems.Remove(v);
                     _dm?.RemoveItem(id);
                 }
+            };
+            // receive logs from queue window
+            _queueWindow.OnLog = (msg) => Log("QueueWindow: " + msg);
+            // when the queue window reports a reorder, update DownloadManager pending list if available
+            _queueWindow.OnReorder = (id, newIndex) => {
+                Log($"Queue reorder requested: {id} -> {newIndex}");
+                var moved = false;
+                try {
+                    if (_dm != null) moved = _dm.MoveItemById(id, newIndex);
+                } catch { }
+                Log(moved ? "DownloadManager: reorder applied." : "DownloadManager: reorder not applied (out of range or already processing).");
             };
             _queueWindow.Closed += (s, ev) => {
                 // detach handlers
