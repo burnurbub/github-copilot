@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="YTP.MacUI.MainWindow"
+        Title="YTP (mac)" Width="900" Height="600" CanResize="True">
+  <Design.PreviewWith>App</Design.PreviewWith>
+  <FluentTheme Mode="Light" />
+  <Grid RowDefinitions="Auto,*" Margin="12">
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <Button Content="Settings" Width="90" Name="SettingsButton" Click="SettingsButton_Click" />
+      <Button Content="Open Queue" Width="90" Name="OpenQueueButton" Click="OpenQueueButton_Click" />
+      <TextBox Width="420" Name="UrlTextBox" Watermark="Paste YouTube URLs here..." AcceptsReturn="True" />
+      <Button Content="Add to queue" Width="110" Name="AddButton" Click="AddButton_Click" />
+    </StackPanel>
+
+    <Border Grid.Row="1" Margin="0,12,0,0" CornerRadius="8" Background="#F6F6F6">
+      <TextBlock Margin="12" Text="This is a mac-like placeholder UI using Avalonia. We'll wire behavior to match Windows app." />
+    </Border>
+  </Grid>
+</Window>

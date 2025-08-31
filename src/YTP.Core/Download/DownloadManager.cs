@@ -32,37 +32,6 @@ namespace YTP.Core.Download
     private readonly object _pendingLock = new();
     private readonly System.Collections.Generic.List<YTP.Core.Models.VideoItem> _pending = new();
     private int _pendingIndex = 0;
-    // signal that pending items are available (used when queue can be appended at runtime)
-    private readonly System.Threading.ManualResetEventSlim _hasPending = new(false);
-    // items that failed due to 403/forbidden and should be retried later
-    private readonly System.Collections.Generic.List<YTP.Core.Models.VideoItem> _forbidden = new();
-    
-    /// <summary>
-    /// Append items to the pending queue while the manager is running.
-    /// Thread-safe and will be visible to a running DownloadItemsAsync consumer.
-    /// </summary>
-    public void AddItems(System.Collections.Generic.IEnumerable<YTP.Core.Models.VideoItem> items)
-    {
-        if (items == null) return;
-        lock (_pendingLock)
-        {
-            _pending.AddRange(items);
-            _hasPending.Set();
-        }
-    }
-
-    /// <summary>
-    /// Append a single item to the pending queue.
-    /// </summary>
-    public void AddItem(YTP.Core.Models.VideoItem item)
-    {
-        if (item == null) return;
-        lock (_pendingLock)
-        {
-            _pending.Add(item);
-            _hasPending.Set();
-        }
-    }
 
         public event Action<DownloadProgress>? ProgressChanged;
         public event Action<string>? LogMessage;
@@ -127,9 +96,6 @@ namespace YTP.Core.Download
     }
 
     // Move an item inside the pending queue (used for drag/reorder)
-                int processedCount = 0;
-                int retriedCount = 0;
-                int succeededAfterRetry = 0;
     public bool MoveItem(int oldIndex, int newIndex)
     {
         lock (_pendingLock)
@@ -142,21 +108,13 @@ namespace YTP.Core.Download
         }
     }
 
-    // Move an item by id to a new index in the pending queue. Returns true if moved.
-    public bool MoveItemById(string itemId, int newIndex)
+    // Append items to the pending queue at runtime. Safe to call while DownloadItemsAsync is running.
+    public void AddItems(System.Collections.Generic.IEnumerable<YTP.Core.Models.VideoItem> items)
     {
-        if (string.IsNullOrEmpty(itemId)) return false;
+        if (items == null) return;
         lock (_pendingLock)
         {
-            var idx = _pending.FindIndex(i => i.Id == itemId);
-            if (idx < 0) return false;
-            if (newIndex < 0) newIndex = 0;
-            if (newIndex > _pending.Count - 1) newIndex = _pending.Count - 1;
-            var item = _pending[idx];
-            _pending.RemoveAt(idx);
-            if (newIndex > _pending.Count) newIndex = _pending.Count;
-            _pending.Insert(newIndex, item);
-            return true;
+            _pending.AddRange(items);
         }
     }
 
@@ -257,39 +215,17 @@ namespace YTP.Core.Download
             // copy into pending list so runtime removals/moves are possible
             lock (_pendingLock)
             {
-                    processedCount++;
                 _pending.Clear();
                 _pending.AddRange(items ?? System.Array.Empty<YTP.Core.Models.VideoItem>());
                 _pendingIndex = 0;
             }
-            // signal that pending items are available
-            _hasPending.Set();
 
             await Task.Run(async () => {
                 var totalStopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-                    retriedCount++;
                 while (true)
                 {
                     ct.ThrowIfCancellationRequested();
-
-                    // If no pending items are available, wait until AddItem/AddItems signals availability
-                    lock (_pendingLock)
-                    {
-                        if (_pendingIndex >= _pending.Count)
-                        {
-                            // reset signal and wait outside lock
-                            _hasPending.Reset();
-                        }
-                    }
-
-                    // Wait for new items or cancellation
-                    if (_pendingIndex >= _pending.Count)
-                    {
-                        // Wait with cancellation support
-                        try { _hasPending.Wait(ct); }
-                        catch (OperationCanceledException) { throw; }
-                    }
 
                     YTP.Core.Models.VideoItem? item = null;
                     int currentIndex = 0;
@@ -297,7 +233,7 @@ namespace YTP.Core.Download
                     lock (_pendingLock)
                     {
                         totalItems = _pending.Count;
-                        if (_pendingIndex >= totalItems) continue; // re-check after waiting
+                        if (_pendingIndex >= totalItems) break;
                         item = _pending[_pendingIndex];
                         currentIndex = _pendingIndex + 1;
                         // advance pointer optimistically; removals will adjust in RemoveItem
@@ -361,7 +297,7 @@ namespace YTP.Core.Download
                             });
                         });
 
-                            var mp3Path = await downloader.DownloadAudioAsMp3Async(item, _outputDir, "320k", playlistFolder, template, itemCt, itemProgress).ConfigureAwait(false);
+                        var mp3Path = await downloader.DownloadAudioAsMp3Async(item, _outputDir, "320k", playlistFolder, template, itemCt, itemProgress).ConfigureAwait(false);
 
                         progress.CurrentPhase = "tagging";
                         progress.Percentage = (currentIndex - 1 + 0.95) / (double)totalItems;
@@ -380,82 +316,19 @@ namespace YTP.Core.Download
                         // clear current item cancellation token source
                         try { _currentItemCts?.Dispose(); _currentItemCts = null; } catch { }
                     }
-                        catch (OperationCanceledException)
+                    catch (OperationCanceledException)
                     {
                         LogMessage?.Invoke($"Cancelled: {item.Title}");
                         totalStopwatch.Stop();
                         throw;
                     }
-                        catch (Exception ex)
-                        {
-                            // detect Forbidden/403-like errors from underlying libraries
-                            var msg = ex.Message ?? string.Empty;
-                            if (msg.Contains("403") || msg.IndexOf("forbidden", StringComparison.OrdinalIgnoreCase) >= 0)
-                            {
-                                LogMessage?.Invoke($"403 Forbidden for {item.Title}; will retry later.");
-                                lock (_pendingLock) { _forbidden.Add(item); }
-                            }
-                            else
-                            {
-                                LogMessage?.Invoke($"Error processing {item.Title}: {ex.Message}");
-                            }
-                        }
+                    catch (Exception ex)
+                    {
+                        LogMessage?.Invoke($"Error processing {item.Title}: {ex.Message}");
+                    }
                 }
 
                 totalStopwatch.Stop();
-                // After finishing the main pass, retry any 403/forbidden items
-                if (_forbidden.Count > 0)
-                {
-                    var retryList = new System.Collections.Generic.List<YTP.Core.Models.VideoItem>(_forbidden);
-                    _forbidden.Clear();
-                    LogMessage?.Invoke($"Retrying {retryList.Count} previously-forbidden items...");
-                    foreach (var item in retryList)
-                    {
-                        try
-                        {
-                            // small retry attempts (3)
-                            var attempts = 0;
-                            var succeeded = false;
-                            while (attempts < 3 && !succeeded)
-                            {
-                                attempts++;
-                                try
-                                {
-                                    // perform a single-item download using same logic as above but without progress reporting
-                                    var metadataService = new MetadataService();
-                                    var downloader = _downloaderFactory != null ? _downloaderFactory(_ffmpeg, metadataService) : new YoutubeDownloaderService(_ffmpeg, metadataService);
-                                    var playlistFolder = item.PlaylistTitle;
-                                    var template = item.IsPlaylistItem ? "{track} - {artist} - {title}" : "{artist} - {title}";
-                                    var cts = CancellationToken.None;
-                                    var tmpProgress = new Progress<double>();
-                                    var mp3Path = await downloader.DownloadAudioAsMp3Async(item, _outputDir, "320k", playlistFolder, template, cts, tmpProgress).ConfigureAwait(false);
-                                    // verify file exists and is non-empty
-                                    if (!string.IsNullOrEmpty(mp3Path) && System.IO.File.Exists(mp3Path) && new System.IO.FileInfo(mp3Path).Length > 0)
-                                    {
-                                        LogMessage?.Invoke($"Retry succeeded: {item.Title} -> {mp3Path}");
-                                        succeeded = true;
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        LogMessage?.Invoke($"Retry attempt {attempts} for {item.Title} succeeded but file verification failed.");
-                                    }
-                                }
-                                catch (Exception rex)
-                                {
-                                    LogMessage?.Invoke($"Retry attempt {attempts} for {item.Title} failed: {rex.Message}");
-                                    // exponential backoff
-                                    await Task.Delay(1000 * attempts).ConfigureAwait(false);
-                                }
-                            }
-                            if (!succeeded) LogMessage?.Invoke($"Failed after retries: {item.Title}");
-                        }
-                        catch (Exception ex)
-                        {
-                            LogMessage?.Invoke($"Unexpected error retrying {item.Title}: {ex.Message}");
-                        }
-                    }
-                }
             }, ct).ConfigureAwait(false);
         }
 

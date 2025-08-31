@@ -76,9 +76,6 @@ namespace YTP.WindowsUI
                 OutputFormatCombo.SelectedIndex = _settings.Settings.OutputFormat == "mp4" ? 1 : 0;
             }
             catch { OutputFormatCombo.SelectedIndex = 0; }
-
-            // keep main queue summary in sync when the underlying collection changes
-            _queueItems.CollectionChanged += QueueItems_CollectionChanged;
         }
 
         // Simple view model for main-window queue summary
@@ -116,46 +113,6 @@ namespace YTP.WindowsUI
         {
             // Open full queue window; it will show tree with playlists and items
             OpenQueueButton_Click(sender, e);
-        }
-
-        private async void EnqueueButton_Click(object sender, RoutedEventArgs e)
-        {
-            var urlsRaw = UrlTextBox.Text;
-            var urls = urlsRaw.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).Select(u => u.Trim()).Where(u => !string.IsNullOrEmpty(u)).ToArray();
-            if (urls.Length == 0)
-            {
-                var mb = new Wpf.Ui.Controls.MessageBox { Title = "Validation", PrimaryButtonText = "OK", CloseButtonText = "Close" };
-                _ = mb.ShowDialogAsync();
-                return;
-            }
-
-            var yts = new YoutubeExplodeService();
-            var flatItems = new System.Collections.Generic.List<YTP.Core.Models.VideoItem>();
-            foreach (var url in urls)
-            {
-                try
-                {
-                    var list = await yts.GetPlaylistOrVideoAsync(url, CancellationToken.None);
-                    foreach (var vi in list)
-                    {
-                        flatItems.Add(vi);
-                        _queueItems.Add(new VideoItemViewModel(vi));
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Log($"Failed to retrieve info for {url}: {ex.Message}");
-                }
-            }
-
-            // If DownloadManager is running use AddItems to append; otherwise nothing to do (items are in UI summary)
-            if (_dm != null)
-            {
-                _dm.AddItems(flatItems);
-                Log($"Enqueued {flatItems.Count} items");
-            }
-            // rebuild summary UI to reflect added items
-            BuildQueueSummary(_queueItems);
         }
 
         private void SkipButton_Click(object sender, RoutedEventArgs e)
@@ -250,6 +207,8 @@ namespace YTP.WindowsUI
                                 _dm?.Pause();
                                 PauseButton.Content = "Resume";
                                 PauseButton.IsEnabled = true;
+                                // pause per-item timer
+                                _itemTimer.Stop();
                             }
                             else
                             {
@@ -257,6 +216,8 @@ namespace YTP.WindowsUI
                                 _dm?.Resume();
                                 PauseButton.Content = "Pause";
                                 PauseButton.IsEnabled = true;
+                                // resume per-item timer
+                                if (!_itemTimer.IsEnabled) _itemTimer.Start();
                             }
                         }
                     }
@@ -396,8 +357,6 @@ namespace YTP.WindowsUI
                 // remove from UI
                 _queueItems.Remove(vvm);
                 Log($"Removed from queue: {vvm.Title}");
-                // update summary UI
-                BuildQueueSummary(_queueItems);
                 // instruct DownloadManager to drop the pending item if possible
                 if (_dm != null)
                 {
@@ -405,12 +364,6 @@ namespace YTP.WindowsUI
                     Log(removed ? $"Removed from pending list: {vvm.Title}" : $"Could not remove from pending list (probably already processing): {vvm.Title}");
                 }
             }
-        }
-
-        private void QueueItems_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            // Rebuild the compact summary on the UI thread
-            Dispatcher?.BeginInvoke((Action)(() => BuildQueueSummary(_queueItems)));
         }
 
         private void QueueList_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -507,30 +460,6 @@ namespace YTP.WindowsUI
                     if (v.IsPaused) _dm?.PauseItem(id); else _dm?.ResumeItem(id);
                 }
             };
-            // ensure timers reflect per-item pause state when user toggles from queue window
-            _queueWindow.OnPauseToggle = (id) => {
-                var v = _queueItems.FirstOrDefault(x => x.Id == id);
-                if (v != null)
-                {
-                    if (v.IsPaused)
-                    {
-                        // if it's currently the playing item, pause overall timers
-                        if (_currentItemId == id)
-                        {
-                            _itemTimer.Stop();
-                        }
-                        _dm?.PauseItem(id);
-                    }
-                    else
-                    {
-                        if (_currentItemId == id)
-                        {
-                            _itemTimer.Start();
-                        }
-                        _dm?.ResumeItem(id);
-                    }
-                }
-            };
             _queueWindow.OnRemove = (id) => {
                 var v = _queueItems.FirstOrDefault(x => x.Id == id);
                 if (v != null)
@@ -539,16 +468,34 @@ namespace YTP.WindowsUI
                     _dm?.RemoveItem(id);
                 }
             };
-            // receive logs from queue window
-            _queueWindow.OnLog = (msg) => Log("QueueWindow: " + msg);
-            // when the queue window reports a reorder, update DownloadManager pending list if available
-            _queueWindow.OnReorder = (id, newIndex) => {
-                Log($"Queue reorder requested: {id} -> {newIndex}");
-                var moved = false;
-                try {
-                    if (_dm != null) moved = _dm.MoveItemById(id, newIndex);
-                } catch { }
-                Log(moved ? "DownloadManager: reorder applied." : "DownloadManager: reorder not applied (out of range or already processing).");
+            _queueWindow.OnOpenLink = (id) => {
+                var v = _queueItems.FirstOrDefault(x => x.Id == id);
+                if (v != null)
+                {
+                    var url = $"https://music.youtube.com/watch?v={v.Id}";
+                    try { System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(url) { UseShellExecute = true }); }
+                    catch { }
+                }
+            };
+            _queueWindow.OnCopyLink = (id) => {
+                var v = _queueItems.FirstOrDefault(x => x.Id == id);
+                if (v != null)
+                {
+                    var url = $"https://music.youtube.com/watch?v={v.Id}";
+                    try { System.Windows.Clipboard.SetText(url); } catch { }
+                }
+            };
+            _queueWindow.OnShowInExplorer = (id) => {
+                var v = _queueItems.FirstOrDefault(x => x.Id == id);
+                if (v != null)
+                {
+                    try
+                    {
+                        var folder = _settings.Settings.OutputDirectory ?? System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("explorer.exe", $"\"{folder}\"") { UseShellExecute = true });
+                    }
+                    catch { }
+                }
             };
             _queueWindow.Closed += (s, ev) => {
                 // detach handlers
@@ -643,6 +590,41 @@ namespace YTP.WindowsUI
             {
                 var mp = new Wpf.Ui.Controls.MessageBox { Title = "Paste", PrimaryButtonText = "OK", CloseButtonText = "Close" };
                 _ = await mp.ShowDialogAsync();
+            }
+        }
+
+        private async void EnqueueButton_Click(object sender, RoutedEventArgs e)
+        {
+            var urlsRaw = UrlTextBox.Text;
+            var urls = urlsRaw.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).Select(u => u.Trim()).Where(u => !string.IsNullOrEmpty(u)).ToArray();
+            if (urls.Length == 0) return;
+
+            var yts = new YoutubeExplodeService();
+            var added = 0;
+            foreach (var url in urls)
+            {
+                try
+                {
+                    var list = await yts.GetPlaylistOrVideoAsync(url, CancellationToken.None);
+                    foreach (var vi in list)
+                    {
+                        _queueItems.Add(new VideoItemViewModel(vi));
+                        added++;
+                        if (_dm != null)
+                        {
+                            _dm.AddItems(new[] { vi });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log($"Failed to enqueue {url}: {ex.Message}");
+                }
+            }
+            if (added > 0)
+            {
+                BuildQueueSummary(_queueItems);
+                Log($"Enqueued {added} items");
             }
         }
 
