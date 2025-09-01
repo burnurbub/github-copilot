@@ -78,6 +78,13 @@ namespace YTP.MacUI
 
             // bind summary control
             if (_queueSummaryCtrl != null) _queueSummaryCtrl.ItemsSource = _queue;
+
+            // Try to enable window transparency on macOS for blur-like effect: set Background to Transparent and allow transparency on window
+            try
+            {
+                this.Background = Avalonia.Media.Brushes.Transparent;
+            }
+            catch { }
         }
 
         private void SettingsButton_Click(object? sender, RoutedEventArgs e)
