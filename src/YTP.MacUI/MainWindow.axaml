@@ -99,8 +99,8 @@
                         <TextBlock Text="{Binding Channel}" FontSize="12" Foreground="{DynamicResource SubtleTextBrush}" />
                       </StackPanel>
                       <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="4">
-                        <Button Content="Pause" />
-                        <Button Content="Remove" />
+                        <Button Content="Pause" Click="QueueItem_Pause_Click" />
+                        <Button Content="Remove" Click="QueueItem_Remove_Click" />
                       </StackPanel>
                     </Grid>
                   </Border>

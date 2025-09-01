@@ -302,5 +302,34 @@ namespace YTP.MacUI
             _dm?.SkipCurrent();
             Log("Skipped current item");
         }
+
+        private void QueueItem_Pause_Click(object? sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.DataContext is YTP.Core.Models.VideoItem vi)
+            {
+                var cur = btn.Content?.ToString() ?? "Pause";
+                if (cur == "Pause")
+                {
+                    _dm?.PauseItem(vi.Id);
+                    btn.Content = "Resume";
+                }
+                else
+                {
+                    _dm?.ResumeItem(vi.Id);
+                    btn.Content = "Pause";
+                }
+            }
+        }
+
+        private void QueueItem_Remove_Click(object? sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.DataContext is YTP.Core.Models.VideoItem vi)
+            {
+                if (_dm != null && _dm.RemoveItem(vi.Id))
+                {
+                    Avalonia.Threading.Dispatcher.UIThread.Post(() => { _queue.Remove(vi); });
+                }
+            }
+        }
     }
 }

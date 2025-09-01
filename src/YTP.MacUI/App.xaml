@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="YTP.MacUI.App">
-  <Application.Styles>
-    <FluentTheme Mode="Light" />
-  </Application.Styles>
-</Application>
+<!-- Deprecated: App.xaml replaced by App.axaml. Keep file as marker. -->
