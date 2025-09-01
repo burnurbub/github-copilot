@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="YTP.MacUI.SettingsWindow"
+        Title="Settings" Width="480" Height="320">
+  <StackPanel Margin="12" Spacing="8">
+    <TextBlock Text="Settings" FontSize="16" FontWeight="Bold" />
+    <TextBlock Text="Output directory" />
+    <TextBox x:Name="OutputDirBox" />
+    <TextBlock Text="FFmpeg path" />
+    <TextBox x:Name="FfmpegPathBox" />
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+      <Button Content="Save" Click="Save_Click" />
+      <Button Content="Cancel" Click="Cancel_Click" />
+    </StackPanel>
+  </StackPanel>
+</Window>

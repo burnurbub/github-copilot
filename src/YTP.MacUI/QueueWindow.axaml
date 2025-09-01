@@ -2,9 +2,35 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="YTP.MacUI.QueueWindow"
-        Title="Queue" Width="480" Height="600">
-  <StackPanel Margin="12">
-    <TextBlock Text="Queue" FontSize="20" Margin="0,0,0,8" />
-  <ListBox ItemsSource="{Binding}" Name="QueueList" />
-  </StackPanel>
+        Title="Queue" Width="520" Height="500">
+  <Grid Margin="8">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+      <ItemsControl x:Name="QueueList" ItemsSource="{Binding}">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Border Padding="6" Margin="0,4,0,4" Background="{StaticResource CardBackgroundBrush}" CornerRadius="6">
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Border Width="30" Height="30" CornerRadius="15" Background="{StaticResource AccentBrush}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                  <TextBlock Text="{Binding PlaylistIndex}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <StackPanel Grid.Column="1">
+                  <TextBlock Text="{Binding Title}" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
+                  <TextBlock Text="{Binding Channel}" FontSize="12" Foreground="{StaticResource SubtleTextBrush}" />
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="4">
+                  <Button Content="Pause" Click="Pause_Click" />
+                  <Button Content="Remove" Click="Remove_Click" />
+                </StackPanel>
+              </Grid>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+  </Grid>
 </Window>

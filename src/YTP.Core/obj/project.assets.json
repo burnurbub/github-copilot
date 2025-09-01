@@ -249,24 +249,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nasse\\.nuget\\packages\\": {}
+    "/Users/nasser/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\YTP.Core.csproj",
+      "projectUniqueName": "/Users/nasser/Documents/ytp/dotnet/github-copilot/src/YTP.Core/YTP.Core.csproj",
       "projectName": "YTP.Core",
-      "projectPath": "c:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\YTP.Core.csproj",
-      "packagesPath": "C:\\Users\\nasse\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\nasse\\OneDrive\\Dev\\Programs\\ytp\\github copilot\\src\\YTP.Core\\obj\\",
+      "projectPath": "/Users/nasser/Documents/ytp/dotnet/github-copilot/src/YTP.Core/YTP.Core.csproj",
+      "packagesPath": "/Users/nasser/.nuget/packages/",
+      "outputPath": "/Users/nasser/Documents/ytp/dotnet/github-copilot/src/YTP.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nasse\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/nasser/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "/opt/homebrew/Cellar/dotnet/9.0.7/libexec/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -285,7 +286,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -328,7 +329,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.7/libexec/sdk/9.0.108/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
