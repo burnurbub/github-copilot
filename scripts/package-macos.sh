@@ -132,6 +132,17 @@ else
   ICON_FILE_NAME="AppIcon"
 fi
 
+# Copy native libraries (.dylib) next to the executable so dyld can locate them.
+echo "Copying native libraries into app bundle..."
+shopt -s nullglob
+for lib in "$PUBLISH_OUT"/*.dylib "$PUBLISH_OUT"/lib*.dylib; do
+  if [[ -f "$lib" ]]; then
+    echo "  - copying $(basename "$lib")"
+    cp "$lib" "$MACOS_DIR/"
+  fi
+done
+shopt -u nullglob
+
 # Write Info.plist
 cat > "$APP_BUNDLE/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>

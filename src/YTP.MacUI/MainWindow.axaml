@@ -89,8 +89,8 @@
         </StackPanel>
 
         <Border Grid.Row="3" Padding="6" CornerRadius="8" Background="{StaticResource CardBackgroundBrush}" VerticalAlignment="Stretch">
-          <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch">
-            <ItemsControl x:Name="QueueSummary" VerticalAlignment="Stretch">
+          <ScrollViewer x:Name="QueueScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Stretch">
+            <ItemsControl x:Name="QueueSummary" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
               <ItemsControl.ItemTemplate>
                 <DataTemplate>
                   <Border Padding="6" Margin="0,4,0,4" CornerRadius="6">
@@ -133,9 +133,9 @@
         <!-- faux translucent panel: semi-transparent background to emulate acrylic -->
         <StackPanel>
           <TextBlock Text="Log" FontWeight="SemiBold" Margin="0,0,0,6" />
-          <ScrollViewer VerticalScrollBarVisibility="Auto">
+      <ScrollViewer x:Name="LogScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
     <TextBox x:Name="LogText" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Background="Transparent" BorderThickness="0" FontFamily="Menlo" FontSize="12" Foreground="{DynamicResource LogForegroundBrush}" />
-          </ScrollViewer>
+      </ScrollViewer>
         </StackPanel>
       </Border>
     </Grid>

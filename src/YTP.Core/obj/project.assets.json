@@ -28,104 +28,6 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Tasks/9.0.7": {
-        "type": "package",
-        "build": {
-          "build/Microsoft.NET.ILLink.Tasks.props": {}
-        }
-      },
-      "Newtonsoft.Json/13.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "SixLabors.ImageSharp/3.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/SixLabors.ImageSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/SixLabors.ImageSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "build/SixLabors.ImageSharp.props": {}
-        }
-      },
-      "TagLibSharp/2.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/TagLibSharp.dll": {
-            "related": ".pdb"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/TagLibSharp.dll": {
-            "related": ".pdb"
-          }
-        }
-      },
-      "YoutubeExplode/6.5.4": {
-        "type": "package",
-        "dependencies": {
-          "AngleSharp": "1.2.0"
-        },
-        "compile": {
-          "lib/net9.0/YoutubeExplode.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/YoutubeExplode.dll": {
-            "related": ".xml"
-          }
-        }
-      }
-    },
-    "net9.0/osx-x64": {
-      "AngleSharp/1.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/AngleSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/AngleSharp.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "HtmlAgilityPack/1.11.46": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
-        }
-      },
-      "Microsoft.NET.ILLink.Tasks/9.0.7": {
-        "type": "package",
-        "build": {
-          "build/Microsoft.NET.ILLink.Tasks.props": {}
-        }
-      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -260,40 +162,6 @@
         "lib/uap10.0/HtmlAgilityPack.pri"
       ]
     },
-    "Microsoft.NET.ILLink.Tasks/9.0.7": {
-      "sha512": "/RjrbEcZiTv+FmQo+kOMC5Q7/rThg1d8T5VCXNUFY5tP/cj9uedWHJOuNeU5/5Xc0m9YIlkyeYcTis721oyKTg==",
-      "type": "package",
-      "path": "microsoft.net.illink.tasks/9.0.7",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        "Icon.png",
-        "LICENSE.TXT",
-        "Sdk/Sdk.props",
-        "THIRD-PARTY-NOTICES.TXT",
-        "analyzers/dotnet/cs/ILLink.CodeFixProvider.dll",
-        "analyzers/dotnet/cs/ILLink.RoslynAnalyzer.dll",
-        "build/Microsoft.NET.ILLink.Analyzers.props",
-        "build/Microsoft.NET.ILLink.Tasks.props",
-        "build/Microsoft.NET.ILLink.targets",
-        "microsoft.net.illink.tasks.9.0.7.nupkg.sha512",
-        "microsoft.net.illink.tasks.nuspec",
-        "tools/net9.0/ILLink.Tasks.deps.json",
-        "tools/net9.0/ILLink.Tasks.dll",
-        "tools/net9.0/Mono.Cecil.Mdb.dll",
-        "tools/net9.0/Mono.Cecil.Pdb.dll",
-        "tools/net9.0/Mono.Cecil.Rocks.dll",
-        "tools/net9.0/Mono.Cecil.dll",
-        "tools/net9.0/Sdk/Sdk.props",
-        "tools/net9.0/build/Microsoft.NET.ILLink.Analyzers.props",
-        "tools/net9.0/build/Microsoft.NET.ILLink.Tasks.props",
-        "tools/net9.0/build/Microsoft.NET.ILLink.targets",
-        "tools/net9.0/illink.deps.json",
-        "tools/net9.0/illink.dll",
-        "tools/net9.0/illink.runtimeconfig.json",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -374,7 +242,6 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "HtmlAgilityPack >= 1.11.46",
-      "Microsoft.NET.ILLink.Tasks >= 9.0.7",
       "Newtonsoft.Json >= 13.0.1",
       "SixLabors.ImageSharp >= 3.1.0",
       "TagLibSharp >= 2.2.0",
@@ -429,12 +296,6 @@
             "target": "Package",
             "version": "[1.11.46, )"
           },
-          "Microsoft.NET.ILLink.Tasks": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[9.0.7, )",
-            "autoReferenced": true
-          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.1, )"
@@ -463,27 +324,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Runtime.osx-x64",
-            "version": "[9.0.7, 9.0.7]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Runtime.osx-x64",
-            "version": "[9.0.7, 9.0.7]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
         "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.7/libexec/sdk/9.0.108/PortableRuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "osx-x64": {
-        "#import": []
       }
     }
   },
@@ -495,8 +341,7 @@
       "message": "Package 'SixLabors.ImageSharp' 3.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-2cmq-823j-5qj8",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
-        "net9.0",
-        "net9.0/osx-x64"
+        "net9.0"
       ]
     },
     {
@@ -506,8 +351,7 @@
       "message": "Package 'SixLabors.ImageSharp' 3.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-5x7m-6737-26cr",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
-        "net9.0",
-        "net9.0/osx-x64"
+        "net9.0"
       ]
     },
     {
@@ -517,8 +361,7 @@
       "message": "Package 'SixLabors.ImageSharp' 3.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-63p8-c4ww-9cg7",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
-        "net9.0",
-        "net9.0/osx-x64"
+        "net9.0"
       ]
     },
     {
@@ -528,8 +371,7 @@
       "message": "Package 'SixLabors.ImageSharp' 3.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-65x7-c272-7g7r",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
-        "net9.0",
-        "net9.0/osx-x64"
+        "net9.0"
       ]
     },
     {
@@ -539,8 +381,7 @@
       "message": "Package 'SixLabors.ImageSharp' 3.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g85r-6x2q-45w7",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
-        "net9.0",
-        "net9.0/osx-x64"
+        "net9.0"
       ]
     },
     {
@@ -550,8 +391,7 @@
       "message": "Package 'SixLabors.ImageSharp' 3.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-qxrv-gp6x-rc23",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
-        "net9.0",
-        "net9.0/osx-x64"
+        "net9.0"
       ]
     },
     {
@@ -561,8 +401,7 @@
       "message": "Package 'SixLabors.ImageSharp' 3.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-rxmq-m78w-7wmc",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
-        "net9.0",
-        "net9.0/osx-x64"
+        "net9.0"
       ]
     }
   ]

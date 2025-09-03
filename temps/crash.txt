@@ -1,0 +1,912 @@
+-------------------------------------
+Translated Report (Full Report Below)
+-------------------------------------
+
+Process:               YTP.MacUI [40421]
+Path:                  /Users/USER/Documents/*/YTP.MacUI.app/Contents/MacOS/YTP.MacUI
+Identifier:            com.ytp.YTP.MacUI
+Version:               1.0
+Code Type:             X86-64 (Translated)
+Parent Process:        launchd [1]
+User ID:               501
+
+Date/Time:             2025-09-03 20:44:56.7827 +0400
+OS Version:            macOS 15.6.1 (24G90)
+Report Version:        12
+Anonymous UUID:        48248C01-DA9A-8DDB-A822-81AA1F9E63FB
+
+Sleep/Wake UUID:       6EDE0B9D-A0AF-4071-A1F1-8CACD1FBB054
+
+Time Awake Since Boot: 140000 seconds
+Time Since Wake:       8169 seconds
+
+System Integrity Protection: enabled
+
+Notes:
+RIP register does not match crashing frame (0x0 vs 0x7FF8A56F6AE0)
+
+Crashed Thread:        0  Dispatch queue: com.apple.main-thread
+
+Exception Type:        EXC_CRASH (SIGABRT)
+Exception Codes:       0x0000000000000000, 0x0000000000000000
+
+Termination Reason:    Namespace SIGNAL, Code 6 Abort trap: 6
+Terminating Process:   YTP.MacUI [40421]
+
+Application Specific Information:
+abort() called
+
+
+Error Formulating Crash Report:
+RIP register does not match crashing frame (0x0 vs 0x7FF8A56F6AE0)
+
+Thread 0 Crashed::  Dispatch queue: com.apple.main-thread
+0   ???                           	    0x7ff8a56f6ae0 ???
+1   libsystem_kernel.dylib        	    0x7ff81821b846 __pthread_kill + 10
+2   libsystem_pthread.dylib       	    0x7ff818256b66 pthread_kill + 259
+3   libsystem_c.dylib             	    0x7ff8181755e6 abort + 126
+4   YTP.MacUI                     	       0x102a4cb5b PROCAbort + 59
+5   YTP.MacUI                     	       0x102a4ca79 TerminateProcess + 137
+6   YTP.MacUI                     	       0x10253cb3e SfiNext + 1246
+7   ???                           	       0x11b5b7239 ???
+8   ???                           	       0x11b5b6a10 ???
+9   YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+10  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+11  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+12  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+13  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+14  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+15  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+16  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+17  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+18  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+19  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+20  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+21  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+22  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+23  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+24  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+25  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+26  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+27  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+28  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+29  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+30  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+31  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+32  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+33  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+34  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+35  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+36  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+37  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+38  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+39  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+40  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+41  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+42  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+43  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+44  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+45  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+46  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+47  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+48  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+49  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+50  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+51  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+52  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+53  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+54  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+55  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+56  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+57  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+58  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+59  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+60  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+61  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+62  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+63  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+64  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+65  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+66  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+67  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+68  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+69  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+70  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+71  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+72  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+73  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+74  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+75  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+76  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+77  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+78  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+79  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+80  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+81  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+82  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+83  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+84  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+85  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+86  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+87  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+88  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+89  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+90  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+91  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+92  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+93  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+94  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+95  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+96  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+97  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+98  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+99  YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+100 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+101 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+102 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+103 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+104 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+105 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+106 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+107 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+108 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+109 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+110 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+111 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+112 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+113 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+114 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+115 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+116 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+117 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+118 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+119 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+120 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+121 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+122 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+123 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+124 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+125 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+126 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+127 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+128 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+129 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+130 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+131 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+132 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+133 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+134 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+135 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+136 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+137 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+138 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+139 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+140 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+141 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+142 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+143 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+144 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+145 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+146 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+147 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+148 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+149 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+150 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+151 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+152 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+153 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+154 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+155 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+156 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+157 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+158 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+159 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+160 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+161 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+162 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+163 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+164 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+165 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+166 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+167 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+168 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+169 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+170 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+171 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+172 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+173 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+174 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+175 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+176 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+177 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+178 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+179 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+180 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+181 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+182 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+183 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+184 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+185 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+186 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+187 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+188 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+189 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+190 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+191 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+192 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+193 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+194 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+195 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+196 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+197 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+198 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+199 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+200 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+201 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+202 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+203 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+204 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+205 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+206 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+207 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+208 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+209 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+210 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+211 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+212 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+213 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+214 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+215 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+216 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+217 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+218 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+219 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+220 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+221 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+222 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+223 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+224 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+225 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+226 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+227 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+228 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+229 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+230 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+231 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+232 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+233 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+234 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+235 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+236 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+237 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+238 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+239 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+240 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+241 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+242 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+243 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+244 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+245 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+246 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+247 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+248 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+249 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+250 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+251 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+252 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+253 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+254 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+255 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+256 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+257 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+258 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+259 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+260 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+261 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+262 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+263 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+264 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+265 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+266 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+267 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+268 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+269 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+270 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+271 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+272 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+273 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+274 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+275 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+276 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+277 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+278 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+279 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+280 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+281 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+282 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+283 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+284 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+285 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+286 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+287 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+288 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+289 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+290 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+291 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+292 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+293 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+294 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+295 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+296 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+297 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+298 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+299 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+300 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+301 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+302 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+303 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+304 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+305 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+306 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+307 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+308 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+309 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+310 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+311 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+312 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+313 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+314 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+315 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+316 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+317 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+318 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+319 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+320 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+321 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+322 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+323 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+324 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+325 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+326 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+327 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+328 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+329 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+330 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+331 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+332 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+333 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+334 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+335 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+336 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+337 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+338 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+339 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+340 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+341 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+342 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+343 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+344 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+345 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+346 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+347 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+348 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+349 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+350 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+351 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+352 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+353 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+354 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+355 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+356 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+357 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+358 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+359 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+360 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+361 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+362 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+363 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+364 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+365 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+366 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+367 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+368 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+369 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+370 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+371 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+372 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+373 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+374 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+375 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+376 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+377 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+378 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+379 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+380 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+381 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+382 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+383 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+384 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+385 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+386 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+387 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+388 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+389 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+390 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+391 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+392 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+393 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+394 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+395 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+396 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+397 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+398 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+399 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+400 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+401 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+402 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+403 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+404 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+405 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+406 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+407 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+408 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+409 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+410 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+411 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+412 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+413 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+414 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+415 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+416 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+417 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+418 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+419 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+420 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+421 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+422 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+423 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+424 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+425 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+426 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+427 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+428 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+429 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+430 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+431 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+432 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+433 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+434 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+435 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+436 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+437 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+438 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+439 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+440 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+441 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+442 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+443 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+444 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+445 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+446 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+447 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+448 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+449 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+450 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+451 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+452 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+453 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+454 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+455 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+456 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+457 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+458 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+459 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+460 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+461 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+462 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+463 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+464 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+465 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+466 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+467 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+468 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+469 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+470 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+471 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+472 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+473 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+474 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+475 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+476 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+477 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+478 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+479 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+480 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+481 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+482 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+483 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+484 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+485 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+486 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+487 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+488 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+489 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+490 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+491 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+492 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+493 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+494 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+495 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+496 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+497 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+498 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+499 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+500 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+501 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+502 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+503 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+504 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+505 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+506 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+507 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+508 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+509 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+510 YTP.MacUI                     	       0x1025ed456 CallDescrWorkerInternal + 124
+
+Thread 1:: com.apple.rosetta.exceptionserver
+0   runtime                       	    0x7ff7ffd050e4 0x7ff7ffd01000 + 16612
+
+Thread 2:
+0   ???                           	    0x7ff8a56f6ae0 ???
+1   libsystem_kernel.dylib        	    0x7ff818214b4a mach_msg2_trap + 10
+2   libsystem_kernel.dylib        	    0x7ff818223704 mach_msg2_internal + 83
+3   libsystem_kernel.dylib        	    0x7ff81821bbc3 mach_msg_overwrite + 574
+4   libsystem_kernel.dylib        	    0x7ff818214e3b mach_msg + 19
+5   YTP.MacUI                     	       0x102a543c8 MachMessage::Receive(unsigned int) + 72
+6   YTP.MacUI                     	       0x102a535a2 SEHExceptionThread(void*) + 82
+7   libsystem_pthread.dylib       	    0x7ff818256e59 _pthread_start + 115
+8   libsystem_pthread.dylib       	    0x7ff818252857 thread_start + 15
+
+Thread 3:: .NET SynchManager
+0   ???                           	    0x7ff8a56f6ae0 ???
+1   libsystem_kernel.dylib        	    0x7ff81821b8f2 poll + 10
+2   YTP.MacUI                     	       0x102a46f5e CorUnix::CPalSynchronizationManager::WorkerThread(void*) + 958
+3   YTP.MacUI                     	       0x102a50fb1 CorUnix::CPalThread::ThreadEntry(void*) + 401
+4   libsystem_pthread.dylib       	    0x7ff818256e59 _pthread_start + 115
+5   libsystem_pthread.dylib       	    0x7ff818252857 thread_start + 15
+
+Thread 4:: .NET EventPipe
+0   ???                           	    0x7ff8a56f6ae0 ???
+1   libsystem_kernel.dylib        	    0x7ff81821b8f2 poll + 10
+2   YTP.MacUI                     	       0x1026a45fc ds_ipc_poll(_DiagnosticsIpcPollHandle*, unsigned long, unsigned int, void (*)(char const*, unsigned int)) + 156
+3   YTP.MacUI                     	       0x1026194db ds_ipc_stream_factory_get_next_available_stream(void (*)(char const*, unsigned int)) + 731
+4   YTP.MacUI                     	       0x10261def6 server_thread(void*) + 198
+5   YTP.MacUI                     	       0x102a50fb1 CorUnix::CPalThread::ThreadEntry(void*) + 401
+6   libsystem_pthread.dylib       	    0x7ff818256e59 _pthread_start + 115
+7   libsystem_pthread.dylib       	    0x7ff818252857 thread_start + 15
+
+Thread 5:: .NET DebugPipe
+0   ???                           	    0x7ff8a56f6ae0 ???
+1   libsystem_kernel.dylib        	    0x7ff818215316 __open + 10
+2   libsystem_kernel.dylib        	    0x7ff81821e313 open + 202
+3   YTP.MacUI                     	       0x1026a404f TwoWayPipe::WaitForConnection() + 31
+4   YTP.MacUI                     	       0x10269e6a7 DbgTransportSession::TransportWorker() + 183
+5   YTP.MacUI                     	       0x10269d2c5 DbgTransportSession::TransportWorkerStatic(void*) + 37
+6   YTP.MacUI                     	       0x102a50fb1 CorUnix::CPalThread::ThreadEntry(void*) + 401
+7   libsystem_pthread.dylib       	    0x7ff818256e59 _pthread_start + 115
+8   libsystem_pthread.dylib       	    0x7ff818252857 thread_start + 15
+
+Thread 6:: .NET Debugger
+0   ???                           	    0x7ff8a56f6ae0 ???
+1   libsystem_kernel.dylib        	    0x7ff8182176f6 __psynch_cvwait + 10
+2   libsystem_pthread.dylib       	    0x7ff818257302 _pthread_cond_wait + 988
+3   YTP.MacUI                     	       0x102a45102 CorUnix::CPalSynchronizationManager::ThreadNativeWait(CorUnix::_ThreadNativeWaitData*, unsigned int, CorUnix::ThreadWakeupReason*, unsigned int*) + 322
+4   YTP.MacUI                     	       0x102a44d52 CorUnix::CPalSynchronizationManager::BlockThread(CorUnix::CPalThread*, unsigned int, bool, bool, CorUnix::ThreadWakeupReason*, unsigned int*) + 370
+5   YTP.MacUI                     	       0x102a49787 CorUnix::InternalWaitForMultipleObjectsEx(CorUnix::CPalThread*, unsigned int, void* const*, int, unsigned int, int, int) + 1911
+6   YTP.MacUI                     	       0x102a49a44 WaitForMultipleObjectsEx + 84
+7   YTP.MacUI                     	       0x10269bafe DebuggerRCThread::MainLoop() + 222
+8   YTP.MacUI                     	       0x10269b9e2 DebuggerRCThread::ThreadProc() + 258
+9   YTP.MacUI                     	       0x10269b715 DebuggerRCThread::ThreadProcStatic(void*) + 53
+10  YTP.MacUI                     	       0x102a50fb1 CorUnix::CPalThread::ThreadEntry(void*) + 401
+11  libsystem_pthread.dylib       	    0x7ff818256e59 _pthread_start + 115
+12  libsystem_pthread.dylib       	    0x7ff818252857 thread_start + 15
+
+Thread 7:
+0   ???                           	    0x7ff8a56f6ae0 ???
+1   libsystem_kernel.dylib        	    0x7ff8182176f6 __psynch_cvwait + 10
+2   libsystem_pthread.dylib       	    0x7ff818257302 _pthread_cond_wait + 988
+3   YTP.MacUI                     	       0x102a450b5 CorUnix::CPalSynchronizationManager::ThreadNativeWait(CorUnix::_ThreadNativeWaitData*, unsigned int, CorUnix::ThreadWakeupReason*, unsigned int*) + 245
+4   YTP.MacUI                     	       0x102a44d52 CorUnix::CPalSynchronizationManager::BlockThread(CorUnix::CPalThread*, unsigned int, bool, bool, CorUnix::ThreadWakeupReason*, unsigned int*) + 370
+5   YTP.MacUI                     	       0x102a49787 CorUnix::InternalWaitForMultipleObjectsEx(CorUnix::CPalThread*, unsigned int, void* const*, int, unsigned int, int, int) + 1911
+6   YTP.MacUI                     	       0x102a4997d WaitForSingleObjectEx + 77
+7   YTP.MacUI                     	       0x10250df49 CLREventBase::WaitEx(unsigned int, WaitMode, PendingSync*) + 185
+8   YTP.MacUI                     	       0x10248b24f FinalizerThread::WaitForFinalizerEvent(CLREvent*) + 31
+9   YTP.MacUI                     	       0x10248b42f FinalizerThread::FinalizerThreadWorker(void*) + 239
+10  YTP.MacUI                     	       0x102425dbe ManagedThreadBase_DispatchOuter(ManagedThreadCallState*) + 286
+11  YTP.MacUI                     	       0x102426310 ManagedThreadBase::FinalizerBase(void (*)(void*)) + 32
+12  YTP.MacUI                     	       0x10248b5d8 FinalizerThread::FinalizerThreadStart(void*) + 88
+13  YTP.MacUI                     	       0x102a50fb1 CorUnix::CPalThread::ThreadEntry(void*) + 401
+14  libsystem_pthread.dylib       	    0x7ff818256e59 _pthread_start + 115
+15  libsystem_pthread.dylib       	    0x7ff818252857 thread_start + 15
+
+Thread 8:
+0   ???                           	    0x7ff8a56f6ae0 ???
+1   libsystem_kernel.dylib        	    0x7ff8182176f6 __psynch_cvwait + 10
+2   libsystem_pthread.dylib       	    0x7ff818257302 _pthread_cond_wait + 988
+3   YTP.MacUI                     	       0x102a450b5 CorUnix::CPalSynchronizationManager::ThreadNativeWait(CorUnix::_ThreadNativeWaitData*, unsigned int, CorUnix::ThreadWakeupReason*, unsigned int*) + 245
+4   YTP.MacUI                     	       0x102a44d52 CorUnix::CPalSynchronizationManager::BlockThread(CorUnix::CPalThread*, unsigned int, bool, bool, CorUnix::ThreadWakeupReason*, unsigned int*) + 370
+5   YTP.MacUI                     	       0x102a49e4d SleepEx + 141
+6   YTP.MacUI                     	       0x10242912a TieredCompilationManager::BackgroundWorkerStart() + 154
+7   YTP.MacUI                     	       0x10242901c TieredCompilationManager::BackgroundWorkerBootstrapper1(void*) + 76
+8   YTP.MacUI                     	       0x102425dbe ManagedThreadBase_DispatchOuter(ManagedThreadCallState*) + 286
+9   YTP.MacUI                     	       0x1024262e0 ManagedThreadBase::KickOff(void (*)(void*), void*) + 32
+10  YTP.MacUI                     	       0x102428f70 TieredCompilationManager::BackgroundWorkerBootstrapper0(void*) + 32
+11  YTP.MacUI                     	       0x102a50fb1 CorUnix::CPalThread::ThreadEntry(void*) + 401
+12  libsystem_pthread.dylib       	    0x7ff818256e59 _pthread_start + 115
+13  libsystem_pthread.dylib       	    0x7ff818252857 thread_start + 15
+
+Thread 9:
+0   runtime                       	    0x7ff7ffd239b0 0x7ff7ffd01000 + 141744
+
+Thread 10:
+0   runtime                       	    0x7ff7ffd239b0 0x7ff7ffd01000 + 141744
+
+Thread 11:
+0   runtime                       	    0x7ff7ffd239b0 0x7ff7ffd01000 + 141744
+
+
+Thread 0 crashed with X86 Thread State (64-bit):
+  rax: 0x0000000000000000  rbx: 0x00007ff859e639c0  rcx: 0x0000000000000000  rdx: 0x0000000000000000
+  rdi: 0x0000000000000000  rsi: 0x000000020794f200  rbp: 0x0000000000000000  rsp: 0x00000000000020a0
+   r8: 0x000000030dc874a8   r9: 0x0000000000000000  r10: 0x00007ff859e639c0  r11: 0x0000000000000000
+  r12: 0x0000000000000000  r13: 0x0000000000000000  r14: 0x0000000000000103  r15: 0x0000000000000016
+  rip: <unavailable>       rfl: 0x0000000000000287
+ tmp0: 0xffffffffffffffff tmp1: 0x00007ff8a56f6ab4 tmp2: 0x00007ff81821b83c
+
+
+Binary Images:
+       0x20788a000 -        0x207924fff dyld (*) <c6e52c5e-d1d2-354c-a4ec-069f8d5baafe> /usr/lib/dyld
+    0x7ff7ffd01000 -     0x7ff7ffd30fff runtime (*) <f49bd639-923b-3201-924b-695964df0712> /usr/libexec/rosetta/runtime
+       0x114c94000 -        0x114cfbfff libRosettaRuntime (*) <7742e99c-2006-3006-bc1e-1869448c6224> /Library/Apple/*/libRosettaRuntime
+       0x1022e7000 -        0x102b8efff com.ytp.YTP.MacUI (*) <a6535f68-9335-327a-a1f9-67aca971b753> /Users/USER/Documents/*/YTP.MacUI.app/Contents/MacOS/YTP.MacUI
+               0x0 - 0xffffffffffffffff ??? (*) <00000000-0000-0000-0000-000000000000> ???
+    0x7ff818214000 -     0x7ff818250b4f libsystem_kernel.dylib (*) <a0701b73-99d9-31f3-babf-51c65e53ebbd> /usr/lib/system/libsystem_kernel.dylib
+    0x7ff818251000 -     0x7ff81825cfaf libsystem_pthread.dylib (*) <2f5f8bae-cebe-30d8-83e3-eca5a30ea39d> /usr/lib/system/libsystem_pthread.dylib
+    0x7ff8180f5000 -     0x7ff81817db37 libsystem_c.dylib (*) <7d811803-63d9-3099-a315-e2aa9faa4a1d> /usr/lib/system/libsystem_c.dylib
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=489.1M resident=0K(0%) swapped_out_or_unallocated=489.1M(100%)
+Writable regions: Total=976.2M written=562K(0%) resident=562K(0%) swapped_out=0K(0%) unallocated=975.6M(100%)
+
+                                VIRTUAL   REGION 
+REGION TYPE                        SIZE    COUNT (non-coalesced) 
+===========                     =======  ======= 
+Activity Tracing                   256K        1 
+Kernel Alloc Once                    8K        1 
+MALLOC                           787.1M       16 
+MALLOC guard page                   96K        6 
+Rosetta Arena                     4096K        2 
+Rosetta Generic                   4296K     1071 
+Rosetta IndirectBranch             512K        1 
+Rosetta JIT                      128.0M        1 
+Rosetta Return Stack               220K       22 
+Rosetta Thread Context             220K       22 
+STACK GUARD                         12K        3 
+Stack                             19.1M       11 
+Stack Guard                       56.0M        8 
+VM_ALLOCATE                        2.1G     1021 
+VM_ALLOCATE (reserved)             128K        2         reserved VM address space (unallocated)
+__DATA                            4616K      290 
+__DATA_CONST                      22.6M      306 
+__DATA_DIRTY                       438K       91 
+__FONT_DATA                        2352        1 
+__LINKEDIT                       236.4M        8 
+__OBJC_RO                         61.3M        1 
+__OBJC_RW                         2393K        3 
+__TEXT                           252.7M      315 
+__TPRO_CONST                         8K        2 
+mapped file                      159.2M       85 
+page table in kernel               562K        1 
+shared memory                       80K        4 
+===========                     =======  ======= 
+TOTAL                              3.8G     3295 
+TOTAL, minus reserved VM space     3.8G     3295 
+
+
+
+-----------
+Full Report
+-----------
+
+{"app_name":"YTP.MacUI","timestamp":"2025-09-03 20:45:11.00 +0400","app_version":"","slice_uuid":"a6535f68-9335-327a-a1f9-67aca971b753","build_version":"1.0","platform":1,"bundleID":"com.ytp.YTP.MacUI","share_with_app_devs":0,"is_first_party":0,"bug_type":"309","os_version":"macOS 15.6.1 (24G90)","roots_installed":0,"name":"YTP.MacUI","incident_id":"18F6E85F-B06A-4C36-909C-968C3DB1FF2B"}
+{
+  "uptime" : 140000,
+  "procRole" : "Background",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "Mac14,2",
+  "coalitionID" : 56747,
+  "osVersion" : {
+    "train" : "macOS 15.6.1",
+    "build" : "24G90",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2025-09-03 20:44:56.7827 +0400",
+  "codeSigningMonitor" : 1,
+  "incident" : "18F6E85F-B06A-4C36-909C-968C3DB1FF2B",
+  "pid" : 40421,
+  "translated" : true,
+  "cpuType" : "X86-64",
+  "roots_installed" : 0,
+  "bug_type" : "309",
+  "procLaunch" : "2025-09-03 20:44:53.0794 +0400",
+  "procStartAbsTime" : 3386354339375,
+  "procExitAbsTime" : 3386443171909,
+  "procName" : "YTP.MacUI",
+  "procPath" : "\/Users\/USER\/Documents\/*\/YTP.MacUI.app\/Contents\/MacOS\/YTP.MacUI",
+  "bundleInfo" : {"CFBundleVersion":"1.0","CFBundleIdentifier":"com.ytp.YTP.MacUI"},
+  "storeInfo" : {"deviceIdentifierForVendor":"92FFA7E0-9FA6-5035-84F4-F2D9993C1413","thirdParty":true},
+  "parentProc" : "launchd",
+  "parentPid" : 1,
+  "coalitionName" : "com.ytp.YTP.MacUI",
+  "crashReporterKey" : "48248C01-DA9A-8DDB-A822-81AA1F9E63FB",
+  "appleIntelligenceStatus" : {"state":"available"},
+  "codeSigningID" : "YTP-55554944a6535f689335327aa1f967aca971b753",
+  "codeSigningTeamID" : "",
+  "codeSigningFlags" : 570425345,
+  "codeSigningValidationCategory" : 10,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "bootSessionUUID" : "750B3287-D8FD-4F0A-AC25-A753580526BC",
+  "wakeTime" : 8169,
+  "sleepWakeUUID" : "6EDE0B9D-A0AF-4071-A1F1-8CACD1FBB054",
+  "sip" : "enabled",
+  "exception" : {"codes":"0x0000000000000000, 0x0000000000000000","rawCodes":[0,0],"type":"EXC_CRASH","signal":"SIGABRT"},
+  "termination" : {"flags":0,"code":6,"namespace":"SIGNAL","indicator":"Abort trap: 6","byProc":"YTP.MacUI","byPid":40421},
+  "asi" : {"libsystem_c.dylib":["abort() called"]},
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":4757139,"threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":0},"r12":{"value":0},"rosetta":{"tmp2":{"value":140703533479996},"tmp1":{"value":140705904159412},"tmp0":{"value":18446744073709551615}},"rbx":{"value":140704636877248,"symbolLocation":0,"symbol":"_os_xbs_chrooted"},"r8":{"value":13116142760},"r15":{"value":22},"r10":{"value":140704636877248,"symbolLocation":0,"symbol":"_os_xbs_chrooted"},"rdx":{"value":0},"rdi":{"value":0},"r9":{"value":0},"r13":{"value":0},"rflags":{"value":647},"rax":{"value":0},"rsp":{"value":8352},"r11":{"value":0},"rcx":{"value":0},"r14":{"value":259},"rsi":{"value":8717136384,"symbolLocation":0,"symbol":"_main_thread"}},"queue":"com.apple.main-thread","frames":[{"imageOffset":140705904159456,"imageIndex":4},{"imageOffset":30790,"symbol":"__pthread_kill","symbolLocation":10,"imageIndex":5},{"imageOffset":23398,"symbol":"pthread_kill","symbolLocation":259,"imageIndex":6},{"imageOffset":525798,"symbol":"abort","symbolLocation":126,"imageIndex":7},{"imageOffset":7756635,"symbol":"PROCAbort","symbolLocation":59,"imageIndex":3},{"imageOffset":7756409,"symbol":"TerminateProcess","symbolLocation":137,"imageIndex":3},{"imageOffset":2448190,"symbol":"SfiNext","symbolLocation":1246,"imageIndex":3},{"imageOffset":4753945145,"imageIndex":4},{"imageOffset":4753943056,"imageIndex":4},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3},{"imageOffset":3171414,"symbol":"CallDescrWorkerInternal","symbolLocation":124,"imageIndex":3}]},{"id":4757194,"name":"com.apple.rosetta.exceptionserver","threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":34097745362944},"r12":{"value":17179869184},"rosetta":{"tmp2":{"value":0},"tmp1":{"value":4462471034675},"tmp0":{"value":10337986281472}},"rbx":{"value":4462471034675},"r8":{"value":7939},"r15":{"value":4831842304},"r10":{"value":1},"rdx":{"value":0},"rdi":{"value":0},"r9":{"value":10767483011072},"r13":{"value":4644199024},"rflags":{"value":2097734},"rax":{"value":268451845},"rsp":{"value":10337986281472},"r11":{"value":0},"rcx":{"value":17314086914},"r14":{"value":4421363084},"rsi":{"value":2616}},"frames":[{"imageOffset":16612,"imageIndex":1}]},{"id":4757198,"frames":[{"imageOffset":140705904159456,"imageIndex":4},{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":5},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":5},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":5},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":5},{"imageOffset":7787464,"symbol":"MachMessage::Receive(unsigned int)","symbolLocation":72,"imageIndex":3},{"imageOffset":7783842,"symbol":"SEHExceptionThread(void*)","symbolLocation":82,"imageIndex":3},{"imageOffset":24153,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":6},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":6}],"threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":29699698851840},"r12":{"value":0},"rosetta":{"tmp2":{"value":140703533512452},"tmp1":{"value":140705904159696},"tmp0":{"value":18446744073709551615}},"rbx":{"value":0},"r8":{"value":0},"r15":{"value":5356},"r10":{"value":0},"rdx":{"value":0},"rdi":{"value":0},"r9":{"value":29699698851840},"r13":{"value":17179869190},"rflags":{"value":643},"rax":{"value":268451845},"rsp":{"value":0},"r11":{"value":5356},"rcx":{"value":17179869190},"r14":{"value":29699698851840},"rsi":{"value":5356}}},{"id":4757200,"name":".NET SynchManager","threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":256},"r12":{"value":3},"rosetta":{"tmp2":{"value":4716712384},"tmp1":{"value":140705904159412},"tmp0":{"value":18446744073709551615}},"rbx":{"value":0},"r8":{"value":13118279552},"r15":{"value":1000},"r10":{"value":0},"rdx":{"value":4294967295},"rdi":{"value":4339297793,"symbolLocation":609,"symbol":"CorUnix::CPalSynchronizationManager::WorkerThread(void*)"},"r9":{"value":256},"r13":{"value":13118279511},"rflags":{"value":658},"rax":{"value":4},"rsp":{"value":12448},"r11":{"value":0},"rcx":{"value":0},"r14":{"value":140407774170232},"rsi":{"value":0}},"frames":[{"imageOffset":140705904159456,"imageIndex":4},{"imageOffset":30962,"symbol":"poll","symbolLocation":10,"imageIndex":5},{"imageOffset":7733086,"symbol":"CorUnix::CPalSynchronizationManager::WorkerThread(void*)","symbolLocation":958,"imageIndex":3},{"imageOffset":7774129,"symbol":"CorUnix::CPalThread::ThreadEntry(void*)","symbolLocation":401,"imageIndex":3},{"imageOffset":24153,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":6},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":6}]},{"id":4757201,"name":".NET EventPipe","threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":2157965307},"r12":{"value":4334996144,"symbolLocation":0,"symbol":"server_warning_callback(char const*, unsigned int)"},"rosetta":{"tmp2":{"value":140703533480168},"tmp1":{"value":140705904159412},"tmp0":{"value":18446744073709551615}},"rbx":{"value":9},"r8":{"value":4294967295},"r15":{"value":140407790912608},"r10":{"value":9},"rdx":{"value":4294967295},"rdi":{"value":4334996144,"symbolLocation":0,"symbol":"server_warning_callback(char const*, unsigned int)"},"r9":{"value":2157965307},"r13":{"value":4294967295},"rflags":{"value":658},"rax":{"value":4},"rsp":{"value":4},"r11":{"value":2043},"rcx":{"value":0},"r14":{"value":1},"rsi":{"value":1}},"frames":[{"imageOffset":140705904159456,"imageIndex":4},{"imageOffset":30962,"symbol":"poll","symbolLocation":10,"imageIndex":5},{"imageOffset":3921404,"symbol":"ds_ipc_poll(_DiagnosticsIpcPollHandle*, unsigned long, unsigned int, void (*)(char const*, unsigned int))","symbolLocation":156,"imageIndex":3},{"imageOffset":3351771,"symbol":"ds_ipc_stream_factory_get_next_available_stream(void (*)(char const*, unsigned int))","symbolLocation":731,"imageIndex":3},{"imageOffset":3370742,"symbol":"server_thread(void*)","symbolLocation":198,"imageIndex":3},{"imageOffset":7774129,"symbol":"CorUnix::CPalThread::ThreadEntry(void*)","symbolLocation":401,"imageIndex":3},{"imageOffset":24153,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":6},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":6}]},{"id":4757202,"name":".NET DebugPipe","threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":1023},"r12":{"value":0},"rosetta":{"tmp2":{"value":140703533490963},"tmp1":{"value":140705904159412},"tmp0":{"value":18446744073709551615}},"rbx":{"value":2166345723},"r8":{"value":0},"r15":{"value":140407773119440},"r10":{"value":2166345723},"rdx":{"value":0},"rdi":{"value":0},"r9":{"value":1023},"r13":{"value":0},"rflags":{"value":662},"rax":{"value":4},"rsp":{"value":2168442886},"r11":{"value":2043},"rcx":{"value":0},"r14":{"value":140407773119452},"rsi":{"value":0}},"frames":[{"imageOffset":140705904159456,"imageIndex":4},{"imageOffset":4886,"symbol":"__open","symbolLocation":10,"imageIndex":5},{"imageOffset":41747,"symbol":"open","symbolLocation":202,"imageIndex":5},{"imageOffset":3919951,"symbol":"TwoWayPipe::WaitForConnection()","symbolLocation":31,"imageIndex":3},{"imageOffset":3896999,"symbol":"DbgTransportSession::TransportWorker()","symbolLocation":183,"imageIndex":3},{"imageOffset":3891909,"symbol":"DbgTransportSession::TransportWorkerStatic(void*)","symbolLocation":37,"imageIndex":3},{"imageOffset":7774129,"symbol":"CorUnix::CPalThread::ThreadEntry(void*)","symbolLocation":401,"imageIndex":3},{"imageOffset":24153,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":6},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":6}]},{"id":4757203,"name":".NET Debugger","threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":160},"r12":{"value":13123033984},"rosetta":{"tmp2":{"value":140703533463276},"tmp1":{"value":140705904159412},"tmp0":{"value":18446744073709551615}},"rbx":{"value":0},"r8":{"value":140703533731417,"symbolLocation":0,"symbol":"_pthread_psynch_cond_cleanup"},"r15":{"value":0},"r10":{"value":0},"rdx":{"value":0},"rdi":{"value":0},"r9":{"value":160},"r13":{"value":4294967552},"rflags":{"value":658},"rax":{"value":260},"rsp":{"value":0},"r11":{"value":0},"rcx":{"value":0},"r14":{"value":140407774178424},"rsi":{"value":0}},"frames":[{"imageOffset":140705904159456,"imageIndex":4},{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":5},{"imageOffset":25346,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":6},{"imageOffset":7725314,"symbol":"CorUnix::CPalSynchronizationManager::ThreadNativeWait(CorUnix::_ThreadNativeWaitData*, unsigned int, CorUnix::ThreadWakeupReason*, unsigned int*)","symbolLocation":322,"imageIndex":3},{"imageOffset":7724370,"symbol":"CorUnix::CPalSynchronizationManager::BlockThread(CorUnix::CPalThread*, unsigned int, bool, bool, CorUnix::ThreadWakeupReason*, unsigned int*)","symbolLocation":370,"imageIndex":3},{"imageOffset":7743367,"symbol":"CorUnix::InternalWaitForMultipleObjectsEx(CorUnix::CPalThread*, unsigned int, void* const*, int, unsigned int, int, int)","symbolLocation":1911,"imageIndex":3},{"imageOffset":7744068,"symbol":"WaitForMultipleObjectsEx","symbolLocation":84,"imageIndex":3},{"imageOffset":3885822,"symbol":"DebuggerRCThread::MainLoop()","symbolLocation":222,"imageIndex":3},{"imageOffset":3885538,"symbol":"DebuggerRCThread::ThreadProc()","symbolLocation":258,"imageIndex":3},{"imageOffset":3884821,"symbol":"DebuggerRCThread::ThreadProcStatic(void*)","symbolLocation":53,"imageIndex":3},{"imageOffset":7774129,"symbol":"CorUnix::CPalThread::ThreadEntry(void*)","symbolLocation":401,"imageIndex":3},{"imageOffset":24153,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":6},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":6}]},{"id":4757204,"frames":[{"imageOffset":140705904159456,"imageIndex":4},{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":5},{"imageOffset":25346,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":6},{"imageOffset":7725237,"symbol":"CorUnix::CPalSynchronizationManager::ThreadNativeWait(CorUnix::_ThreadNativeWaitData*, unsigned int, CorUnix::ThreadWakeupReason*, unsigned int*)","symbolLocation":245,"imageIndex":3},{"imageOffset":7724370,"symbol":"CorUnix::CPalSynchronizationManager::BlockThread(CorUnix::CPalThread*, unsigned int, bool, bool, CorUnix::ThreadWakeupReason*, unsigned int*)","symbolLocation":370,"imageIndex":3},{"imageOffset":7743367,"symbol":"CorUnix::InternalWaitForMultipleObjectsEx(CorUnix::CPalThread*, unsigned int, void* const*, int, unsigned int, int, int)","symbolLocation":1911,"imageIndex":3},{"imageOffset":7743869,"symbol":"WaitForSingleObjectEx","symbolLocation":77,"imageIndex":3},{"imageOffset":2256713,"symbol":"CLREventBase::WaitEx(unsigned int, WaitMode, PendingSync*)","symbolLocation":185,"imageIndex":3},{"imageOffset":1720911,"symbol":"FinalizerThread::WaitForFinalizerEvent(CLREvent*)","symbolLocation":31,"imageIndex":3},{"imageOffset":1721391,"symbol":"FinalizerThread::FinalizerThreadWorker(void*)","symbolLocation":239,"imageIndex":3},{"imageOffset":1306046,"symbol":"ManagedThreadBase_DispatchOuter(ManagedThreadCallState*)","symbolLocation":286,"imageIndex":3},{"imageOffset":1307408,"symbol":"ManagedThreadBase::FinalizerBase(void (*)(void*))","symbolLocation":32,"imageIndex":3},{"imageOffset":1721816,"symbol":"FinalizerThread::FinalizerThreadStart(void*)","symbolLocation":88,"imageIndex":3},{"imageOffset":7774129,"symbol":"CorUnix::CPalThread::ThreadEntry(void*)","symbolLocation":401,"imageIndex":3},{"imageOffset":24153,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":6},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":6}],"threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":160},"r12":{"value":13124618256},"rosetta":{"tmp2":{"value":140703533463276},"tmp1":{"value":140705904159412},"tmp0":{"value":18446744073709551615}},"rbx":{"value":0},"r8":{"value":140703533731417,"symbolLocation":0,"symbol":"_pthread_psynch_cond_cleanup"},"r15":{"value":0},"r10":{"value":0},"rdx":{"value":0},"rdi":{"value":0},"r9":{"value":160},"r13":{"value":4294967552},"rflags":{"value":658},"rax":{"value":260},"rsp":{"value":0},"r11":{"value":0},"rcx":{"value":0},"r14":{"value":140407782562936},"rsi":{"value":2}}},{"id":4757205,"frames":[{"imageOffset":140705904159456,"imageIndex":4},{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":5},{"imageOffset":25346,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":6},{"imageOffset":7725237,"symbol":"CorUnix::CPalSynchronizationManager::ThreadNativeWait(CorUnix::_ThreadNativeWaitData*, unsigned int, CorUnix::ThreadWakeupReason*, unsigned int*)","symbolLocation":245,"imageIndex":3},{"imageOffset":7724370,"symbol":"CorUnix::CPalSynchronizationManager::BlockThread(CorUnix::CPalThread*, unsigned int, bool, bool, CorUnix::ThreadWakeupReason*, unsigned int*)","symbolLocation":370,"imageIndex":3},{"imageOffset":7745101,"symbol":"SleepEx","symbolLocation":141,"imageIndex":3},{"imageOffset":1319210,"symbol":"TieredCompilationManager::BackgroundWorkerStart()","symbolLocation":154,"imageIndex":3},{"imageOffset":1318940,"symbol":"TieredCompilationManager::BackgroundWorkerBootstrapper1(void*)","symbolLocation":76,"imageIndex":3},{"imageOffset":1306046,"symbol":"ManagedThreadBase_DispatchOuter(ManagedThreadCallState*)","symbolLocation":286,"imageIndex":3},{"imageOffset":1307360,"symbol":"ManagedThreadBase::KickOff(void (*)(void*), void*)","symbolLocation":32,"imageIndex":3},{"imageOffset":1318768,"symbol":"TieredCompilationManager::BackgroundWorkerBootstrapper0(void*)","symbolLocation":32,"imageIndex":3},{"imageOffset":7774129,"symbol":"CorUnix::CPalThread::ThreadEntry(void*)","symbolLocation":401,"imageIndex":3},{"imageOffset":24153,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":6},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":6}],"threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":160},"r12":{"value":13126204464},"rosetta":{"tmp2":{"value":140703533463276},"tmp1":{"value":140705904159412},"tmp0":{"value":18446744073709551615}},"rbx":{"value":0},"r8":{"value":140703533731417,"symbolLocation":0,"symbol":"_pthread_psynch_cond_cleanup"},"r15":{"value":0},"r10":{"value":0},"rdx":{"value":0},"rdi":{"value":100000000},"r9":{"value":160},"r13":{"value":2203318223616},"rflags":{"value":658},"rax":{"value":260},"rsp":{"value":0},"r11":{"value":0},"rcx":{"value":0},"r14":{"value":140407782625912},"rsi":{"value":0}}},{"id":4757210,"frames":[{"imageOffset":141744,"imageIndex":1}],"threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":18446744073709551615},"r12":{"value":0},"rosetta":{"tmp2":{"value":0},"tmp1":{"value":0},"tmp0":{"value":0}},"rbx":{"value":0},"r8":{"value":0},"r15":{"value":0},"r10":{"value":0},"rdx":{"value":13126225920},"rdi":{"value":0},"r9":{"value":0},"r13":{"value":0},"rflags":{"value":531},"rax":{"value":13126762496},"rsp":{"value":409604},"r11":{"value":0},"rcx":{"value":15875},"r14":{"value":0},"rsi":{"value":0}}},{"id":4757211,"frames":[{"imageOffset":141744,"imageIndex":1}],"threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":18446744073709551615},"r12":{"value":0},"rosetta":{"tmp2":{"value":0},"tmp1":{"value":0},"tmp0":{"value":0}},"rbx":{"value":0},"r8":{"value":0},"r15":{"value":0},"r10":{"value":0},"rdx":{"value":13126782976},"rdi":{"value":0},"r9":{"value":0},"r13":{"value":0},"rflags":{"value":531},"rax":{"value":13127319552},"rsp":{"value":409604},"r11":{"value":0},"rcx":{"value":12803},"r14":{"value":0},"rsi":{"value":0}}},{"id":4757212,"frames":[{"imageOffset":141744,"imageIndex":1}],"threadState":{"flavor":"x86_THREAD_STATE","rbp":{"value":18446744073709551615},"r12":{"value":0},"rosetta":{"tmp2":{"value":0},"tmp1":{"value":0},"tmp0":{"value":0}},"rbx":{"value":0},"r8":{"value":0},"r15":{"value":0},"r10":{"value":0},"rdx":{"value":13127340032},"rdi":{"value":0},"r9":{"value":0},"r13":{"value":0},"rflags":{"value":531},"rax":{"value":13127876608},"rsp":{"value":409604},"r11":{"value":0},"rcx":{"value":13059},"r14":{"value":0},"rsi":{"value":0}}}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 8716328960,
+    "size" : 634880,
+    "uuid" : "c6e52c5e-d1d2-354c-a4ec-069f8d5baafe",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 140703125475328,
+    "size" : 196608,
+    "uuid" : "f49bd639-923b-3201-924b-695964df0712",
+    "path" : "\/usr\/libexec\/rosetta\/runtime",
+    "name" : "runtime"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4643700736,
+    "size" : 425984,
+    "uuid" : "7742e99c-2006-3006-bc1e-1869448c6224",
+    "path" : "\/Library\/Apple\/*\/libRosettaRuntime",
+    "name" : "libRosettaRuntime"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 4331565056,
+    "CFBundleIdentifier" : "com.ytp.YTP.MacUI",
+    "size" : 9076736,
+    "uuid" : "a6535f68-9335-327a-a1f9-67aca971b753",
+    "path" : "\/Users\/USER\/Documents\/*\/YTP.MacUI.app\/Contents\/MacOS\/YTP.MacUI",
+    "name" : "YTP.MacUI",
+    "CFBundleVersion" : "1.0"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703533449216,
+    "size" : 248656,
+    "uuid" : "a0701b73-99d9-31f3-babf-51c65e53ebbd",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703533699072,
+    "size" : 49072,
+    "uuid" : "2f5f8bae-cebe-30d8-83e3-eca5a30ea39d",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703532273664,
+    "size" : 559928,
+    "uuid" : "7d811803-63d9-3099-a315-e2aa9faa4a1d",
+    "path" : "\/usr\/lib\/system\/libsystem_c.dylib",
+    "name" : "libsystem_c.dylib"
+  }
+],
+  "sharedCache" : {
+  "base" : 140703501402112,
+  "size" : 25769803776,
+  "uuid" : "ee391b1f-8609-3a52-b9f2-37e2fecd47b7"
+},
+  "vmSummary" : "ReadOnly portion of Libraries: Total=489.1M resident=0K(0%) swapped_out_or_unallocated=489.1M(100%)\nWritable regions: Total=976.2M written=562K(0%) resident=562K(0%) swapped_out=0K(0%) unallocated=975.6M(100%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nActivity Tracing                   256K        1 \nKernel Alloc Once                    8K        1 \nMALLOC                           787.1M       16 \nMALLOC guard page                   96K        6 \nRosetta Arena                     4096K        2 \nRosetta Generic                   4296K     1071 \nRosetta IndirectBranch             512K        1 \nRosetta JIT                      128.0M        1 \nRosetta Return Stack               220K       22 \nRosetta Thread Context             220K       22 \nSTACK GUARD                         12K        3 \nStack                             19.1M       11 \nStack Guard                       56.0M        8 \nVM_ALLOCATE                        2.1G     1021 \nVM_ALLOCATE (reserved)             128K        2         reserved VM address space (unallocated)\n__DATA                            4616K      290 \n__DATA_CONST                      22.6M      306 \n__DATA_DIRTY                       438K       91 \n__FONT_DATA                        2352        1 \n__LINKEDIT                       236.4M        8 \n__OBJC_RO                         61.3M        1 \n__OBJC_RW                         2393K        3 \n__TEXT                           252.7M      315 \n__TPRO_CONST                         8K        2 \nmapped file                      159.2M       85 \npage table in kernel               562K        1 \nshared memory                       80K        4 \n===========                     =======  ======= \nTOTAL                              3.8G     3295 \nTOTAL, minus reserved VM space     3.8G     3295 \n",
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "logWritingSignature" : "3e0d8c12a1cd41ec3f7078ad200ecbf0d2953729",
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "60da5e84ab0ca017dace9abf",
+      "factorPackIds" : {
+
+      },
+      "deploymentId" : 240000008
+    },
+    {
+      "rolloutId" : "6434420a89ec2e0a7a38bf5a",
+      "factorPackIds" : {
+
+      },
+      "deploymentId" : 240000011
+    }
+  ],
+  "experiments" : [
+    {
+      "treatmentId" : "f18344bb-554f-48ae-8449-e108a8813a55",
+      "experimentId" : "6685b5584477001000e8c6c9",
+      "deploymentId" : 400000009
+    }
+  ]
+},
+  "reportNotes" : [
+  "RIP register does not match crashing frame (0x0 vs 0x7FF8A56F6AE0)"
+]
+}
+
+Model: Mac14,2, BootROM 11881.140.96, proc 8:4:4 processors, 8 GB, SMC 
+Graphics: Apple M2, Apple M2, Built-In
+Display: Color LCD, 2560 x 1664 Retina, Main, MirrorOff, Online
+Memory Module: LPDDR5, Micron
+AirPort: spairport_wireless_card_type_wifi (0x14E4, 0x4387), wl0: Mar 23 2025 19:56:28 version 20.130.17.0.8.7.197 FWID 01-764e34b7
+IO80211_driverkit-1485.7 "IO80211_driverkit-1485.7" Jul 15 2025 20:46:41
+AirPort: 
+Bluetooth: Version (null), 0 services, 0 devices, 0 incoming serial ports
+Network Service: Wi-Fi, AirPort, en0
+USB Device: USB31Bus
+USB Device: USB31Bus
+Thunderbolt Bus: MacBook Air, Apple Inc.
+Thunderbolt Bus: MacBook Air, Apple Inc.

@@ -34,6 +34,8 @@ namespace YTP.MacUI
     private Avalonia.Controls.Button? _skipButtonCtrl;
     private Avalonia.Controls.ProgressBar? _itemProgressCtrl;
     private Avalonia.Controls.TextBox? _logTextCtrl;
+    private Avalonia.Controls.ScrollViewer? _logScrollViewer;
+    private Avalonia.Controls.ScrollViewer? _queueScrollViewer;
     private Avalonia.Controls.TextBlock? _totalElapsedTextCtrl;
     private Avalonia.Controls.TextBlock? _itemElapsedTextCtrl;
     private Avalonia.Controls.TextBlock? _currentSongTextCtrl;
@@ -59,6 +61,8 @@ namespace YTP.MacUI
             _skipButtonCtrl = this.FindControl<Avalonia.Controls.Button>("SkipButton");
             _itemProgressCtrl = this.FindControl<Avalonia.Controls.ProgressBar>("ItemProgress");
             _logTextCtrl = this.FindControl<Avalonia.Controls.TextBox>("LogText");
+            _logScrollViewer = this.FindControl<Avalonia.Controls.ScrollViewer>("LogScrollViewer");
+            _queueScrollViewer = this.FindControl<Avalonia.Controls.ScrollViewer>("QueueScrollViewer");
             _totalElapsedTextCtrl = this.FindControl<Avalonia.Controls.TextBlock>("TotalElapsedText");
             _itemElapsedTextCtrl = this.FindControl<Avalonia.Controls.TextBlock>("ItemElapsedText");
             _currentSongTextCtrl = this.FindControl<Avalonia.Controls.TextBlock>("CurrentSongText");
@@ -120,7 +124,47 @@ namespace YTP.MacUI
         {
             Avalonia.Threading.Dispatcher.UIThread.Post(() =>
             {
-                if (_logTextCtrl != null) _logTextCtrl.Text += msg + "\n";
+                if (_logTextCtrl == null)
+                {
+                    return;
+                }
+
+                // Append new line
+                var wasAtEnd = false;
+                try
+                {
+                    // determine if caret is already at the end so we only force-scroll when user hasn't scrolled up
+                    var caret = _logTextCtrl.CaretIndex;
+                    wasAtEnd = caret >= (_logTextCtrl.Text?.Length ?? 0) - 1;
+                }
+                catch { }
+
+                _logTextCtrl.Text += msg + "\n";
+
+                // Ensure caret is at end and scroll to it. Avalonia TextBox doesn't expose ScrollToEnd on all versions,
+                // so we set CaretIndex and try to call ScrollToEnd via reflection as a best-effort, otherwise use ScrollViewer.
+                try
+                {
+                    _logTextCtrl.CaretIndex = _logTextCtrl.Text.Length;
+                    // try call ScrollToEnd if it exists
+                    var mi = _logTextCtrl.GetType().GetMethod("ScrollToEnd");
+                    if (mi != null)
+                    {
+                        mi.Invoke(_logTextCtrl, null);
+                    }
+                    else
+                    {
+                        // fallback: scroll the surrounding ScrollViewer to bottom
+                        if (_logScrollViewer != null)
+                        {
+                            _logScrollViewer.Offset = new Avalonia.Vector(_logScrollViewer.Offset.X, double.MaxValue);
+                        }
+                    }
+                }
+                catch
+                {
+                    // ignore any reflection/scrolling errors
+                }
             });
         }
 
