@@ -42,42 +42,21 @@ namespace YTP.MacUI
                         this.Resources["WindowBackgroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#1C1C1E"));
                         this.Resources["CardBackgroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#242426"));
                         this.Resources["SubtleTextBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#9FA0A3"));
+                        // darker translucent panel and light log foreground for dark mode
+                        this.Resources["TranslucentPanel"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#000000")) { Opacity = 0.18 };
+                        this.Resources["LogForegroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#F2F2F5"));
                     }
                     else
                     {
                         this.Resources["WindowBackgroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#F2F2F7"));
                         this.Resources["CardBackgroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#FFFFFF"));
                         this.Resources["SubtleTextBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#6E6E73"));
+                        this.Resources["TranslucentPanel"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#FFFFFF")) { Opacity = 0.86 };
+                        this.Resources["LogForegroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#1C1C1E"));
                     }
 
-                    // Try to read macOS accent color via `defaults read -g AppleAccentColor`
-                    try
-                    {
-                        var p2 = new System.Diagnostics.ProcessStartInfo { FileName = "/usr/bin/defaults", Arguments = "read -g AppleAccentColor", RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false };
-                        using var proc2 = System.Diagnostics.Process.Start(p2);
-                        if (proc2 != null)
-                        {
-                            var outp2 = proc2.StandardOutput.ReadToEnd().Trim();
-                            proc2.WaitForExit(250);
-                            if (int.TryParse(outp2, out var accentCode))
-                            {
-                                // Map common accent codes to hex colors (approximate)
-                                var accent = accentCode switch
-                                {
-                                    1 => "#AF52DE", // purple
-                                    2 => "#FF375F", // pink/red
-                                    3 => "#FF3B30", // red
-                                    4 => "#FF9500", // orange
-                                    5 => "#0A84FF", // treat yellow code as system blue to avoid poor contrast
-                                    6 => "#34C759", // green
-                                    7 => "#8E8E93", // graphite
-                                    _ => "#0A84FF", // blue/default (HIG)
-                                };
-                                this.Resources["AccentBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse(accent));
-                            }
-                        }
-                    }
-                    catch { /* ignore accent detection failures */ }
+                    // For now, use the user's requested macOS purple accent to ensure consistent visuals.
+                    this.Resources["AccentBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#AF52DE"));
                 }
                 catch { }
 

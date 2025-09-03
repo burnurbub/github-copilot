@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="YTP.MacUI.SettingsWindow"
-        Title="Settings" Width="480" Height="320">
-  <StackPanel Margin="12" Spacing="8">
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  x:Class="YTP.MacUI.SettingsWindow"
+  Title="Settings" Width="480" Height="500" MinWidth="420" MinHeight="500" Background="{DynamicResource WindowBackgroundBrush}">
+  <StackPanel Margin="12" Spacing="10">
     <TextBlock Text="Settings" FontSize="16" FontWeight="Bold" />
     <TextBlock Text="Output directory" />
     <TextBox x:Name="OutputDirBox" />
     <TextBlock Text="FFmpeg path" />
     <TextBox x:Name="FfmpegPathBox" />
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+    <Separator />
+    <TextBlock Text="Download behavior" FontWeight="SemiBold" />
+    <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+      <CheckBox x:Name="AutoRetry403Check" Content="Auto-retry items that fail with 403" />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+      <TextBlock Text="Max retries" VerticalAlignment="Center" />
+      <NumericUpDown x:Name="MaxRetriesBox" Minimum="0" Maximum="20" Value="0" Width="80" />
+    </StackPanel>
+
+    <Separator />
+    <TextBlock Text="Appearance" FontWeight="SemiBold" />
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <TextBlock Text="Theme" VerticalAlignment="Center" />
+      <ComboBox x:Name="ThemeCombo" Width="140">
+        <ComboBoxItem>Auto</ComboBoxItem>
+        <ComboBoxItem>Light</ComboBoxItem>
+        <ComboBoxItem>Dark</ComboBoxItem>
+      </ComboBox>
+    </StackPanel>
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
       <Button Content="Save" Click="Save_Click" />
       <Button Content="Cancel" Click="Cancel_Click" />
     </StackPanel>

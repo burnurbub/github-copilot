@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="YTP.MacUI.QueueWindow"
-        Title="Queue" Width="520" Height="500">
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  x:Class="YTP.MacUI.QueueWindow"
+  Title="Queue" Width="520" Height="500" MinWidth="420" MinHeight="360" Background="{DynamicResource WindowBackgroundBrush}">
   <Grid Margin="8">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
       <ItemsControl x:Name="QueueList" ItemsSource="{Binding}">
@@ -15,8 +15,8 @@
                   <ColumnDefinition Width="*" />
                   <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Border Width="30" Height="30" CornerRadius="15" Background="{StaticResource AccentBrush}" VerticalAlignment="Center" HorizontalAlignment="Center">
-                  <TextBlock Text="{Binding PlaylistIndex}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Border Width="30" Height="30" CornerRadius="6" Background="{DynamicResource AccentBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,8,0">
+                  <TextBlock Text="{Binding PlaylistIndex}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
                 </Border>
                 <StackPanel Grid.Column="1">
                   <TextBlock Text="{Binding Title}" FontWeight="Bold" TextTrimming="CharacterEllipsis" />

@@ -18,7 +18,8 @@
   </Application.Styles>
 
   <Application.Resources>
-  <Color x:Key="AccentColor">#0A84FF</Color>
+    <!-- Force macOS purple accent for user preference -->
+    <Color x:Key="AccentColor">#AF52DE</Color>
     <!-- Window background: subtle layered gray to mimic macOS light background -->
     <LinearGradientBrush x:Key="WindowBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
       <GradientStop Color="#F8F8F9" Offset="0" />
@@ -26,14 +27,17 @@
     </LinearGradientBrush>
     <SolidColorBrush x:Key="CardBackgroundBrush" Color="#FFFFFFFF" />
     <SolidColorBrush x:Key="SubtleTextBrush" Color="#6E6E73" />
-  <!-- macOS system blue per HIG -->
-  <SolidColorBrush x:Key="AccentBrush" Color="#0A84FF" />
-    <!-- translucent panel used for the log area -->
+    <!-- macOS purple accent -->
+    <SolidColorBrush x:Key="AccentBrush" Color="#AF52DE" />
+  <!-- translucent panel used for the log area (light translucent for good contrast on macOS light background) -->
   <SolidColorBrush x:Key="TranslucentPanel" Color="#FFFFFF" Opacity="0.86" />
 
-  <!-- typography: prefer SF Pro where available -->
-  <FontFamily x:Key="AppFontFamily">SF Pro Text, -apple-system, Helvetica Neue, Arial</FontFamily>
+    <!-- stronger foreground for log text so it reads against the panel -->
+    <SolidColorBrush x:Key="LogForegroundBrush" Color="#1C1C1E" />
 
-  <!-- (Styles moved to Application.Styles) -->
+    <!-- typography: prefer SF Pro where available -->
+    <FontFamily x:Key="AppFontFamily">SF Pro Text, -apple-system, Helvetica Neue, Arial</FontFamily>
+
+    <!-- (Styles moved to Application.Styles) -->
   </Application.Resources>
 </Application>
