@@ -74,7 +74,7 @@ namespace YTP.Core.Tests
             Directory.Delete(tempDir, true);
         }
 
-        private class SingleVideoYoutubeService : IYoutubeService
+    public class SingleVideoYoutubeService : IYoutubeService
         {
             public Task<VideoItem> GetVideoMetadataAsync(string videoId, CancellationToken ct = default)
             {
@@ -88,7 +88,7 @@ namespace YTP.Core.Tests
             }
         }
 
-        private class SlowFakeDownloaderService : YoutubeDownloaderService
+    public class SlowFakeDownloaderService : YoutubeDownloaderService
         {
             private readonly TimeSpan _stepDelay;
             public SlowFakeDownloaderService(TimeSpan stepDelay) : base(null!, null!) { _stepDelay = stepDelay; }

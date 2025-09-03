@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -62,7 +63,7 @@ namespace YTP.Core.Tests
         {
             public FakeDownloaderService() : base(null!, null!) { }
 
-            public override Task<string> DownloadAudioAsMp3Async(VideoItem item, string outputDirectory, string mp3Quality = "320k", string? playlistFolderName = null, string? filenameTemplate = null, CancellationToken ct = default)
+            public override Task<string> DownloadAudioAsMp3Async(VideoItem item, string outputDirectory, string mp3Quality = "320k", string? playlistFolderName = null, string? filenameTemplate = null, CancellationToken ct = default, IProgress<double>? progress = null)
             {
                 var targetDir = outputDirectory;
                 if (!string.IsNullOrWhiteSpace(playlistFolderName)) targetDir = Path.Combine(outputDirectory, playlistFolderName);

@@ -32,6 +32,8 @@ namespace YTP.Core.Download
     private readonly object _pendingLock = new();
     private readonly System.Collections.Generic.List<YTP.Core.Models.VideoItem> _pending = new();
     private int _pendingIndex = 0;
+    // items that returned HTTP 403 during processing and should be retried after the main queue finishes
+    private readonly System.Collections.Generic.List<YTP.Core.Models.VideoItem> _retry403 = new();
 
         public event Action<DownloadProgress>? ProgressChanged;
         public event Action<string>? LogMessage;
@@ -198,6 +200,15 @@ namespace YTP.Core.Download
                         catch (Exception ex)
                         {
                             LogMessage?.Invoke($"Error processing {item.Title}: {ex.Message}");
+                            // If this looks like a 403/forbidden HTTP error, remember it for retries later
+                            if (IsLikely403(ex))
+                            {
+                                lock (_pendingLock)
+                                {
+                                    _retry403.Add(item);
+                                }
+                                LogMessage?.Invoke($"Queued for retry (403): {item.Title}");
+                            }
                         }
                     }
                     // after finishing this url/playlist update total stopwatch if we continue
@@ -325,12 +336,105 @@ namespace YTP.Core.Download
                     catch (Exception ex)
                     {
                         LogMessage?.Invoke($"Error processing {item.Title}: {ex.Message}");
+                        // If this looks like a 403/forbidden HTTP error, remember it for retries later
+                        if (IsLikely403(ex))
+                        {
+                            lock (_pendingLock)
+                            {
+                                _retry403.Add(item);
+                            }
+                            LogMessage?.Invoke($"Queued for retry (403): {item.Title}");
+                        }
                     }
                 }
 
                 totalStopwatch.Stop();
+                // After main queue, attempt to retry any 403-failed items until they succeed or the caller cancels
+                if (_retry403.Count > 0)
+                {
+                    LogMessage?.Invoke($"Retrying {_retry403.Count} item(s) that previously failed with 403 until success or abort.");
+                    while (true)
+                    {
+                        ct.ThrowIfCancellationRequested();
+                        YTP.Core.Models.VideoItem[] toTry;
+                        lock (_pendingLock)
+                        {
+                            toTry = _retry403.ToArray();
+                        }
+
+                        if (toTry.Length == 0) break;
+
+                        foreach (var retryItem in toTry)
+                        {
+                            ct.ThrowIfCancellationRequested();
+                            try
+                            {
+                                // Recreate services for retry to avoid captured state
+                                var metadataService = new MetadataService();
+                                var downloader = _downloaderFactory != null ? _downloaderFactory(_ffmpeg, metadataService) : new YoutubeDownloaderService(_ffmpeg, metadataService);
+                                var retryStopwatch = System.Diagnostics.Stopwatch.StartNew();
+                                var progress = new DownloadProgress { Item = retryItem, Percentage = 0, CurrentPhase = "retrying", TotalItems = 1, CurrentIndex = 1, TotalElapsed = totalStopwatch.Elapsed, ItemElapsed = TimeSpan.Zero };
+                                ProgressChanged?.Invoke(progress);
+
+                                // Build a simple progress reporter for retry (0..1)
+                                var itemProgress = new Progress<double>(p => {
+                                    try
+                                    {
+                                        progress.Percentage = p;
+                                        progress.ItemElapsed = retryStopwatch.Elapsed;
+                                        ProgressChanged?.Invoke(progress);
+                                    }
+                                    catch { }
+                                });
+
+                                var retryCts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+                                var mp3Path = await downloader.DownloadAudioAsMp3Async(retryItem, _outputDir, "320k", retryItem.PlaylistTitle, "{artist} - {title}", retryCts.Token, itemProgress).ConfigureAwait(false);
+
+                                // success -> remove from retry list
+                                lock (_pendingLock)
+                                {
+                                    _retry403.RemoveAll(i => i.Id == retryItem.Id);
+                                }
+                                LogMessage?.Invoke($"Retry completed: {retryItem.Title} -> {mp3Path}");
+                                retryStopwatch.Stop();
+                            }
+                            catch (OperationCanceledException)
+                            {
+                                throw;
+                            }
+                            catch (Exception ex)
+                            {
+                                // still failing; keep it in the retry list only if it's likely a 403
+                                if (IsLikely403(ex))
+                                {
+                                    LogMessage?.Invoke($"Retry failed (will retry later): {retryItem.Title} - {ex.Message}");
+                                }
+                                else
+                                {
+                                    LogMessage?.Invoke($"Retry failed permanently (removing): {retryItem.Title} - {ex.Message}");
+                                    lock (_pendingLock)
+                                    {
+                                        _retry403.RemoveAll(i => i.Id == retryItem.Id);
+                                    }
+                                }
+                            }
+                        }
+
+                        // Wait a short time before next retry wave
+                        await Task.Delay(5000, ct).ConfigureAwait(false);
+                    }
+                }
             }, ct).ConfigureAwait(false);
         }
+
+    private static bool IsLikely403(Exception ex)
+    {
+        if (ex == null) return false;
+        var msg = ex.Message ?? string.Empty;
+        if (msg.Contains("403") || msg.IndexOf("forbidden", StringComparison.OrdinalIgnoreCase) >= 0) return true;
+        if (ex.InnerException != null) return IsLikely403(ex.InnerException);
+        return false;
+    }
 
         private string SanitizeFilename(string filename)
         {

@@ -79,5 +79,50 @@ namespace YTP.Core.Tests
                 return Task.FromResult(Path.Combine(outputDirectory, item.Id + ".mp3"));
             }
         }
+
+        [Fact]
+        public async Task RetryOn403_WillRetryUntilSuccess()
+        {
+            var tempDir = Path.Combine(Path.GetTempPath(), "ytp_test_dm_retry");
+            if (Directory.Exists(tempDir)) Directory.Delete(tempDir, true);
+            Directory.CreateDirectory(tempDir);
+
+            var yts = new PauseFriendlyYoutubeService();
+            var ffmpeg = new FFmpegService("ffmpeg");
+
+            int attempt = 0;
+            YoutubeDownloaderService FakeFactory(FFmpegService f, MetadataService m)
+            {
+                return new FlakyDownloader(() => ++attempt);
+            }
+
+            var dm = new DownloadManager(yts, ffmpeg, tempDir, FakeFactory);
+
+            var item = new YTP.Core.Models.VideoItem { Id = "x", Title = "RetryMe" };
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(20));
+
+            // Start download of a single item which will fail with a 403 (simulated) twice then succeed
+            await dm.DownloadItemsAsync(new[] { item }, cts.Token);
+
+            // expect that the flaky downloader attempted enough times to succeed (initial + retries)
+            Assert.True(attempt >= 3, $"Downloader should have attempted >=3 times but was {attempt}.");
+
+            Directory.Delete(tempDir, true);
+        }
+
+        private class FlakyDownloader : YoutubeDownloaderService
+        {
+            private readonly Func<int> _getAttempt;
+            public FlakyDownloader(Func<int> attempt) : base(null!, null!) { _getAttempt = attempt; }
+            public override Task<string> DownloadAudioAsMp3Async(YTP.Core.Models.VideoItem item, string outputDirectory, string mp3Quality = "320k", string? playlistFolderName = null, string? filenameTemplate = null, CancellationToken ct = default, IProgress<double>? progress = null)
+            {
+                var a = _getAttempt();
+                if (a <= 2)
+                {
+                    throw new InvalidOperationException("403 Forbidden");
+                }
+                return Task.FromResult(Path.Combine(outputDirectory, item.Id + ".mp3"));
+            }
+        }
     }
 }

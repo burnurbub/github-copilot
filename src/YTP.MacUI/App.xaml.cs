@@ -38,9 +38,10 @@ namespace YTP.MacUI
                     // Apply basic light/dark background
                     if (isDark)
                     {
-                        this.Resources["WindowBackgroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#0F0F10"));
-                        this.Resources["CardBackgroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#121214"));
-                        this.Resources["SubtleTextBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#BEBFC1"));
+                        // neutral dark gray similar to macOS dark windows
+                        this.Resources["WindowBackgroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#1C1C1E"));
+                        this.Resources["CardBackgroundBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#242426"));
+                        this.Resources["SubtleTextBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#9FA0A3"));
                     }
                     else
                     {
@@ -67,10 +68,10 @@ namespace YTP.MacUI
                                     2 => "#FF375F", // pink/red
                                     3 => "#FF3B30", // red
                                     4 => "#FF9500", // orange
-                                    5 => "#FFCC00", // yellow
+                                    5 => "#0A84FF", // treat yellow code as system blue to avoid poor contrast
                                     6 => "#34C759", // green
                                     7 => "#8E8E93", // graphite
-                                    _ => "#007AFF", // blue/default
+                                    _ => "#0A84FF", // blue/default (HIG)
                                 };
                                 this.Resources["AccentBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse(accent));
                             }
@@ -79,6 +80,12 @@ namespace YTP.MacUI
                     catch { /* ignore accent detection failures */ }
                 }
                 catch { }
+
+                // Ensure AccentBrush exists as a fallback
+                if (!this.Resources.ContainsKey("AccentBrush"))
+                {
+                    this.Resources["AccentBrush"] = new Avalonia.Media.SolidColorBrush(Avalonia.Media.Color.Parse("#0A84FF"));
+                }
 
                 desktop.MainWindow = new MainWindow();
             }

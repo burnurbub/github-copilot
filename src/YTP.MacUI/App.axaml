@@ -4,14 +4,36 @@
              x:Class="YTP.MacUI.App">
   <Application.Styles>
     <FluentTheme />
+    <!-- App-specific styles -->
+    <Style Selector="Button.primary">
+      <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Padding" Value="10,6" />
+      <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style Selector="TextBlock.subtle">
+      <Setter Property="Foreground" Value="{DynamicResource SubtleTextBrush}" />
+    </Style>
   </Application.Styles>
 
   <Application.Resources>
-    <Color x:Key="AccentColor">#007AFF</Color>
-    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#F2F2F7" />
+  <Color x:Key="AccentColor">#0A84FF</Color>
+    <!-- Window background: subtle layered gray to mimic macOS light background -->
+    <LinearGradientBrush x:Key="WindowBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+      <GradientStop Color="#F8F8F9" Offset="0" />
+      <GradientStop Color="#F1F1F5" Offset="1" />
+    </LinearGradientBrush>
     <SolidColorBrush x:Key="CardBackgroundBrush" Color="#FFFFFFFF" />
     <SolidColorBrush x:Key="SubtleTextBrush" Color="#6E6E73" />
-    <SolidColorBrush x:Key="AccentBrush" Color="#007AFF" />
-    <SolidColorBrush x:Key="TranslucentPanel" Color="#F8F8F8" Opacity="0.85" />
+  <!-- macOS system blue per HIG -->
+  <SolidColorBrush x:Key="AccentBrush" Color="#0A84FF" />
+    <!-- translucent panel used for the log area -->
+  <SolidColorBrush x:Key="TranslucentPanel" Color="#FFFFFF" Opacity="0.86" />
+
+  <!-- typography: prefer SF Pro where available -->
+  <FontFamily x:Key="AppFontFamily">SF Pro Text, -apple-system, Helvetica Neue, Arial</FontFamily>
+
+  <!-- (Styles moved to Application.Styles) -->
   </Application.Resources>
 </Application>

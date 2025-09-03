@@ -21,13 +21,13 @@
       </Grid.ColumnDefinitions>
       <TextBlock Text="YTP Downloader" FontSize="16" VerticalAlignment="Center" />
       <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6">
-        <Button x:Name="OpenQueueButton" Content="Queue" Width="80" Click="OpenQueueButton_Click" />
+        <Button x:Name="OpenQueueButton" Content="Queue" Width="80" Click="OpenQueueButton_Click" Classes="primary" />
         <Button x:Name="SettingsButton" Content="⚙" Width="36" Height="28" Click="SettingsButton_Click" />
       </StackPanel>
     </Grid>
 
     <!-- URL input -->
-    <TextBox x:Name="UrlTextBox" Grid.Row="1" Height="120" AcceptsReturn="True" TextWrapping="Wrap" Margin="0,8,0,8" Watermark="Paste YouTube URLs here, one per line..." />
+  <TextBox x:Name="UrlTextBox" Grid.Row="1" Height="120" AcceptsReturn="True" TextWrapping="Wrap" Margin="0,8,0,8" Watermark="Paste YouTube URLs here, one per line..." Background="{StaticResource CardBackgroundBrush}" CornerRadius="8" />
 
     <!-- Actions row -->
     <Grid Grid.Row="2" Margin="0,4,0,8">
@@ -36,8 +36,8 @@
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
 
-      <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Spacing="6">
-        <Button x:Name="StartButton" Content="Start" Width="100" Click="StartButton_Click" Background="{StaticResource AccentBrush}" Foreground="White" />
+        <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Spacing="8">
+        <Button x:Name="StartButton" Content="Start" Width="100" Click="StartButton_Click" Classes="primary" />
         <Button x:Name="PauseButton" Content="Pause" Width="90" Click="PauseButton_Click" IsEnabled="False" />
         <Button x:Name="EnqueueButton" Content="Enqueue" Width="90" Click="EnqueueButton_Click" />
         <Button x:Name="SkipButton" Content="Skip" Width="80" Click="SkipButton_Click" IsEnabled="False" />
@@ -62,26 +62,34 @@
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
 
-      <StackPanel Grid.Column="0">
-        <TextBox x:Name="OutputDirText" IsReadOnly="True" />
-        <StackPanel Orientation="Horizontal" Margin="0,6,0,6" Spacing="6">
+      <Grid Grid.Column="0">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBox x:Name="OutputDirText" Grid.Row="0" IsReadOnly="True" Background="{StaticResource CardBackgroundBrush}" CornerRadius="6" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,6,0,6" Spacing="6">
           <Button x:Name="ChooseOutputButton" Content="Choose..." Click="ChooseOutputButton_Click" />
           <Button x:Name="OpenFolderButton" Content="Open Folder" Click="OpenFolderButton_Click" />
         </StackPanel>
 
-        <TextBlock Text="Song:" />
-        <TextBlock x:Name="CurrentSongText" FontWeight="Bold" MaxWidth="360" TextTrimming="CharacterEllipsis" />
-
-        <StackPanel Orientation="Horizontal" Margin="0,6,0,6">
-          <TextBlock Text="Elapsed:" />
-          <TextBlock x:Name="ItemElapsedText" Margin="6,0,12,0" />
-          <TextBlock Text="Total:" />
-          <TextBlock x:Name="TotalElapsedText" Margin="6,0,0,0" />
+        <StackPanel Grid.Row="2" Spacing="6">
+          <TextBlock Text="Song:" />
+          <TextBlock x:Name="CurrentSongText" FontWeight="Bold" MaxWidth="360" TextTrimming="CharacterEllipsis" />
+          <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+            <TextBlock Text="Elapsed:" />
+            <TextBlock x:Name="ItemElapsedText" Margin="6,0,12,0" />
+            <TextBlock Text="Total:" />
+            <TextBlock x:Name="TotalElapsedText" Margin="6,0,0,0" />
+          </StackPanel>
         </StackPanel>
 
-        <Border Padding="6" CornerRadius="6">
-          <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="QueueSummary" MinHeight="160">
+        <Border Grid.Row="3" Padding="6" CornerRadius="8" Background="{StaticResource CardBackgroundBrush}" VerticalAlignment="Stretch">
+          <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch">
+            <ItemsControl x:Name="QueueSummary" VerticalAlignment="Stretch">
               <ItemsControl.ItemTemplate>
                 <DataTemplate>
                   <Border Padding="6" Margin="0,4,0,4" CornerRadius="6">
@@ -91,8 +99,8 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                       </Grid.ColumnDefinitions>
-                      <Border Width="30" Height="30" CornerRadius="15" Background="{DynamicResource AccentBrush}" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding PlaylistIndex}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                      <Border Width="36" Height="36" CornerRadius="18" Background="{DynamicResource AccentBrush}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding PlaylistIndex}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
                       </Border>
                       <StackPanel Grid.Column="1">
                         <TextBlock Text="{Binding Title}" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
@@ -111,13 +119,17 @@
         </Border>
 
         <TextBlock x:Name="PlaylistInfoText" FontWeight="SemiBold" Margin="0,6,0,6" />
-        <ProgressBar x:Name="ItemProgress" Minimum="0" Maximum="1" Height="18" />
-      </StackPanel>
+        <ProgressBar x:Name="ItemProgress" Grid.Row="4" Minimum="0" Maximum="1" Height="14" CornerRadius="6" />
+      </Grid>
 
-      <Border Grid.Column="2" Background="{StaticResource TranslucentPanel}" CornerRadius="8" Padding="8">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-          <TextBox x:Name="LogText" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Background="Transparent" BorderThickness="0" />
-        </ScrollViewer>
+      <Border Grid.Column="2" CornerRadius="10" Padding="12" Background="#FFFFFFCC" BorderBrush="#FFFFFF55" BorderThickness="1">
+        <!-- faux translucent panel: semi-transparent background to emulate acrylic -->
+        <StackPanel>
+          <TextBlock Text="Log" FontWeight="SemiBold" Margin="0,0,0,6" />
+          <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <TextBox x:Name="LogText" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Background="Transparent" BorderThickness="0" FontFamily="Menlo" FontSize="12" />
+          </ScrollViewer>
+        </StackPanel>
       </Border>
     </Grid>
 
