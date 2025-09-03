@@ -34,6 +34,15 @@ namespace YTP.Core.Download
     private int _pendingIndex = 0;
     // items that returned HTTP 403 during processing and should be retried after the main queue finishes
     private readonly System.Collections.Generic.List<YTP.Core.Models.VideoItem> _retry403 = new();
+    // per-item retry counters (keyed by item id)
+    private readonly System.Collections.Generic.Dictionary<string, int> _retryCounts = new();
+
+    // retry policy
+    public bool AutoRetry403 { get; set; } = true;
+    /// <summary>
+    /// Max retries per item. 0 = unlimited
+    /// </summary>
+    public int MaxRetries { get; set; } = 0;
 
         public event Action<DownloadProgress>? ProgressChanged;
         public event Action<string>? LogMessage;
@@ -203,11 +212,21 @@ namespace YTP.Core.Download
                             // If this looks like a 403/forbidden HTTP error, remember it for retries later
                             if (IsLikely403(ex))
                             {
-                                lock (_pendingLock)
+                                if (AutoRetry403)
                                 {
-                                    _retry403.Add(item);
+                                    lock (_pendingLock)
+                                    {
+                                        _retry403.Add(item);
+                                    }
+                                    // initialize retry count
+                                    if (!_retryCounts.ContainsKey(item.Id))
+                                        _retryCounts[item.Id] = 0;
+                                    LogMessage?.Invoke($"Queued for retry (403): {item.Title}");
                                 }
-                                LogMessage?.Invoke($"Queued for retry (403): {item.Title}");
+                                else
+                                {
+                                    LogMessage?.Invoke($"Detected 403 for {item.Title} but AutoRetry403 is disabled; not queued for retry.");
+                                }
                             }
                         }
                     }
@@ -349,7 +368,7 @@ namespace YTP.Core.Download
                 }
 
                 totalStopwatch.Stop();
-                // After main queue, attempt to retry any 403-failed items until they succeed or the caller cancels
+                // After main queue, attempt to retry any 403-failed items until they succeed, the caller cancels, AutoRetry403 is turned off, or MaxRetries is reached
                 if (_retry403.Count > 0)
                 {
                     LogMessage?.Invoke($"Retrying {_retry403.Count} item(s) that previously failed with 403 until success or abort.");
@@ -367,8 +386,38 @@ namespace YTP.Core.Download
                         foreach (var retryItem in toTry)
                         {
                             ct.ThrowIfCancellationRequested();
+
+                            // skip if auto-retry has been disabled
+                            if (!AutoRetry403)
+                            {
+                                LogMessage?.Invoke($"AutoRetry403 disabled; skipping retries for {retryItem.Title}");
+                                lock (_pendingLock)
+                                {
+                                    _retry403.RemoveAll(i => i.Id == retryItem.Id);
+                                }
+                                continue;
+                            }
+
+                            // ensure retry count entry exists
+                            if (!_retryCounts.ContainsKey(retryItem.Id))
+                                _retryCounts[retryItem.Id] = 0;
+
+                            // if we've reached max retries for this item, skip and remove
+                            if (MaxRetries > 0 && _retryCounts[retryItem.Id] >= MaxRetries)
+                            {
+                                LogMessage?.Invoke($"Skipping retry for {retryItem.Title} (id={retryItem.Id}) - reached MaxRetries={MaxRetries}");
+                                lock (_pendingLock)
+                                {
+                                    _retry403.RemoveAll(i => i.Id == retryItem.Id);
+                                }
+                                continue;
+                            }
+
                             try
                             {
+                                // increment retry count
+                                _retryCounts[retryItem.Id]++;
+
                                 // Recreate services for retry to avoid captured state
                                 var metadataService = new MetadataService();
                                 var downloader = _downloaderFactory != null ? _downloaderFactory(_ffmpeg, metadataService) : new YoutubeDownloaderService(_ffmpeg, metadataService);
@@ -404,10 +453,20 @@ namespace YTP.Core.Download
                             }
                             catch (Exception ex)
                             {
-                                // still failing; keep it in the retry list only if it's likely a 403
+                                // still failing; keep it in the retry list only if it's likely a 403 and we haven't exceeded MaxRetries
                                 if (IsLikely403(ex))
                                 {
                                     LogMessage?.Invoke($"Retry failed (will retry later): {retryItem.Title} - {ex.Message}");
+                                    // if we have a max and we've reached it, remove from list
+                                    if (MaxRetries > 0 && _retryCounts.TryGetValue(retryItem.Id, out var cnt) && cnt >= MaxRetries)
+                                    {
+                                        LogMessage?.Invoke($"Not re-queueing {retryItem.Title} (id={retryItem.Id}) - reached MaxRetries={MaxRetries}");
+                                        lock (_pendingLock)
+                                        {
+                                            _retry403.RemoveAll(i => i.Id == retryItem.Id);
+                                        }
+                                    }
+                                    // otherwise leave in list for next wave
                                 }
                                 else
                                 {

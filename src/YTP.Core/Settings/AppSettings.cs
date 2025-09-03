@@ -22,6 +22,9 @@ namespace YTP.Core.Settings
     public double MainWindowMinHeight { get; set; } = 400;
     public double SettingsWindowMinWidth { get; set; } = 400;
     public double SettingsWindowMinHeight { get; set; } = 300;
+    // Retry behavior for 403 failures
+    public bool AutoRetry403 { get; set; } = true;
+    public int MaxRetries { get; set; } = 0; // 0 = unlimited
     // Output format (mp3 or mp4)
     public string OutputFormat { get; set; } = "mp3";
     }

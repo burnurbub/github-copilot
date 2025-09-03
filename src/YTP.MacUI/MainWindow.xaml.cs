@@ -141,7 +141,11 @@ namespace YTP.MacUI
 
             _yts = new YoutubeExplodeService();
             _ffmpeg = new FFmpegService(_settings.Settings.FfmpegPath);
+            // create DownloadManager using settings and pass a downloader factory that can read metadata service if needed
             _dm = new DownloadManager(_yts, _ffmpeg, _settings.Settings.OutputDirectory);
+            // apply persisted retry settings
+            _dm.AutoRetry403 = _settings.Settings.AutoRetry403;
+            _dm.MaxRetries = _settings.Settings.MaxRetries;
             _dm.LogMessage += s => Log(s);
             _dm.ProgressChanged += p => {
                 Avalonia.Threading.Dispatcher.UIThread.Post(() => {
