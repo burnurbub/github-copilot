@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="YTP.Uno.UI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="12" Background="{StaticResource WindowBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBox x:Name="UrlTextBox" Width="480" PlaceholderText="Enter URL or playlist" />
+            <Button x:Name="PasteClipboardButton" Content="Paste" Click="PasteClipboardButton_Click" />
+            <Button x:Name="ClearUrlsButton" Content="Clear" Click="ClearUrlsButton_Click" />
+            <Button x:Name="EnqueueButton" Content="Enqueue" Click="EnqueueButton_Click" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Spacing="8" Grid.Row="1" Margin="0,8,0,8">
+            <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" />
+            <Button x:Name="PauseButton" Content="Pause" Click="PauseButton_Click" />
+            <Button x:Name="SkipButton" Content="Skip" Click="SkipButton_Click" />
+            <Button x:Name="AbortButton" Content="Abort" Click="AbortButton_Click" />
+            <Button x:Name="OpenQueueButton" Content="Queue" Click="OpenQueueButton_Click" />
+            <Button x:Name="SettingsButton" Content="Settings" Click="SettingsButton_Click" />
+            <ComboBox x:Name="OutputFormatCombo" Width="140" SelectedIndex="0">
+                <ComboBoxItem Content="Default (mp3)" />
+                <ComboBoxItem Content="m4a" />
+                <ComboBoxItem Content="flac" />
+            </ComboBox>
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ProgressBar x:Name="ItemProgress" Height="6" Minimum="0" Maximum="100" Grid.Row="0" />
+
+            <TextBlock x:Name="QueueSummary" Grid.Row="2" Text="Queue: 0 items" />
+
+            <TextBox x:Name="LogText" Grid.Row="4" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" />
+        </Grid>
+    </Grid>
+</Page>

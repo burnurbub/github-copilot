@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="YTP.Uno.UI.Controls.QueueItemControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Padding="6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="TitleText" Grid.Column="0" Text="Title" />
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6">
+            <Button x:Name="PauseBtn" Content="Pause" Click="PauseBtn_Click" />
+            <Button x:Name="RemoveBtn" Content="Remove" Click="RemoveBtn_Click" />
+        </StackPanel>
+    </Grid>
+
+</UserControl>

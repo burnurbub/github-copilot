@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0-maccatalyst</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>YTP.Uno.UI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Uno.UI" Version="4.6.0" />
+    <PackageReference Include="Uno.Toolkit" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\YTP.Core\YTP.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="MainPage.xaml.cs" />
+    <Compile Include="QueuePage.xaml.cs" />
+    <Compile Include="App.xaml.cs" />
+    <None Include="MainPage.xaml" />
+    <None Include="QueuePage.xaml" />
+    <None Include="App.xaml" />
+  </ItemGroup>
+</Project>
